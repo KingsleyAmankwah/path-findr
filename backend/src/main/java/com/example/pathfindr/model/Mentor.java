@@ -16,6 +16,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
+import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 
@@ -125,6 +126,18 @@ public class Mentor implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    @Lob
+    @Column(name = "cv", columnDefinition = "LONGBLOB")
+    private byte[] cv; // Storing CV file as a byte array
+
+    public byte[] getCv() {
+        return cv;
+    }
+
+    public void setCv(byte[] cv) {
+        this.cv = cv;
     }
 
 }
