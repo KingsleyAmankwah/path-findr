@@ -3,7 +3,6 @@ package com.example.pathfindr.service.studentService;
 import java.util.Collections;
 import java.util.Random;
 
-import org.apache.el.util.Validation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
