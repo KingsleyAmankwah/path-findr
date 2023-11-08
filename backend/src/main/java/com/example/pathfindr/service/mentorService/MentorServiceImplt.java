@@ -42,6 +42,7 @@ public class MentorServiceImplt implements MentorService {
         Role role = roleRepository.findByName("MENTOR").get();
         mentor.setRoles(Collections.singletonList(role));
 
+
         mentorRepository.save(mentor);
 
         // Send email to admin for verification
@@ -49,7 +50,10 @@ public class MentorServiceImplt implements MentorService {
                 mentor.getId());
 
         emailService.sendSimpleEmail(mentor.getEmail(),
-                "Application received successfully and under review. \n Thank you.", "Panthfindr Mentor Application");
+                "Application received successfully and under review.\n Feed back will be given within the next 24 to 72 hours\\n"
+                        + 
+                        " Thank you.",
+                "Panthfindr Mentor Application");
 
     }
 
