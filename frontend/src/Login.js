@@ -2,12 +2,50 @@ import React, { useState } from 'react';
 import './login.css';
 
 function Login() {
+
+//login render
   const [isLogin, setIsLogin] = useState(false);
+
+  //
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const toggleLogin = () => {
     setIsLogin(!isLogin);
    
   };
+
+  //handle submit button
+  const handleClick = (e) => {
+    e.preventDefault();
+
+    const Student = {username,email,password};
+  
+    signUpStudent(Student);
+    
+  }
+
+  // async function signUpStudent(Student) {
+  //   const response = await fetch('http://localhost:8080/signUpStudent', {
+  //     method: 'POST',
+  //     headers: { "Content-Type": "text/plain" },
+  //     body: JSON.stringify(Student)
+  //   });
+  //   const data = await response.text();
+  //   console.log(data);
+  // }
+
+  async function signUpStudent(Student) {
+    const response = await fetch('http://localhost:8080/signUpStudent', {
+      method: 'POST',
+      headers: { "Content-Type": "application/json" }, // Change "text/plain" to "application/json"
+      body: JSON.stringify(Student)
+    });
+    const data = await response.text();
+    console.log(`Response from server: ${data}`);
+  }
+
 
   return (
     <div className="section_big">
@@ -58,11 +96,10 @@ function Login() {
           )} */}
         </div>
         <div className="form-block w-form">
-          <form
+          <form 
             id="email-form"
             name="email-form"
-            data-name="Email Form"
-            method="get"
+            onSubmit={handleClick}
             data-ms-form={isLogin ? 'login' : 'signup'}
             className="form"
             data-wf-page-id="64b5124a00cf93214c44e4cc"
@@ -81,12 +118,15 @@ function Login() {
                   type="name"
                   className="field-input w-input"
                   maxLength="256"
-                  name="Email-3"
-                  data-name="Email 3"
+                  name="username"
+                  data-name="username"
                   placeholder="Enter your username"
-                  id="Email-3"
+                  id="username"
                   data-ms-member="email"
-                  src="kuku@gmail.com"
+
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                
                 />
               </div>
 
@@ -102,6 +142,8 @@ function Login() {
                   placeholder="Enter your email"
                   id="Email-3"
                   data-ms-member="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
 
@@ -115,6 +157,8 @@ function Login() {
                 placeholder="********"
                 id="Password-3"
                 data-ms-member="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
             
@@ -132,7 +176,7 @@ function Login() {
                      zIndex: -1,
                   }}
                 />
-                <span className="chekbox-text w-form-label" for="checkbox-2">
+                <span className="chekbox-text w-form-label" htmlFor="checkbox-2">
                   I agree to the terms of service
                 </span>
               </label>
@@ -142,8 +186,9 @@ function Login() {
               value={isLogin ? 'Login' : 'Sign up'}
               data-wait="Please wait..."
               className="button_form w-button"
+             
             />
-            {!isLogin && (
+            {/* {!isLogin && (
               <a
                 data-ms-auth-provider="google"
                 href="google"
@@ -157,8 +202,9 @@ function Login() {
                 />
                 <p className="button-text">Continue with Google</p>
               </a>
-            )}
+            )} */}
           </form>
+          {username}
         </div>
       </div>
     </div>
