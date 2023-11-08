@@ -1765,7 +1765,7 @@ body {
     margin-left: 0px;
     border-color: #5928e5;
     border-radius: 20px;
-    background-color: #5928e5;
+    background-color: rgb(229, 201, 40);
   }
   
   .button-3._100 {
@@ -1777,9 +1777,9 @@ body {
     -webkit-align-self: baseline;
     -ms-flex-item-align: baseline;
     align-self: baseline;
-    border: 3px solid #5928e5;
+    border: 3px solid #5a28e5ef;
     border-radius: 3px;
-    background-color: #5928e5;
+    background-color: rgb(229, 201, 40);
     color: #fff;
   }
   

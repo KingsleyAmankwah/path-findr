@@ -102,6 +102,22 @@ export default function AppForm(){
                   required=""
                 />
                 <br/>
+
+                <select
+                     name="Subject"
+                     id="Subject"
+                    className="form_text-field w-input"
+                  >
+    <option value=""className="form_field-label" >Select specialization</option>
+    <option value="Engineering"className="form_field-label" >Engineering</option>
+    <option value="Business Analysis"className="form_field-label" >Business Analysis</option>
+    <option value="Arts"className="form_field-label">Arts</option>
+    <option value="Humanities" className="form_field-label">Humanities</option>
+    <option value="Social Sciences"className="form_field-label">Social Sciences</option>
+    <option value="Medicine"className="form_field-label">Medicine</option>
+    <option value="Information Technology"className="form_field-label">Information Technology</option>
+  </select>
+                <br/>
                 
                 <label for="CV-file" className="form_field-label">
                 CV File
@@ -110,7 +126,7 @@ export default function AppForm(){
                 <input
                   type="file"
                   accept=".pdf,.doc,.docx" // Specify accepted file types (e.g., PDF, Word documents)
-                  
+                  className="form_text-field w-input"
                  />
                 
                 <input
