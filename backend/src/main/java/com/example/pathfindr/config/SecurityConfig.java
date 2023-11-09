@@ -31,7 +31,8 @@ public class SecurityConfig {
                                                                                                 "http://localhost:8080/data",
                                                                                                 "http://localhost:3000",
                                                                                                 "/mentorApplication",
-                                                                                                "http://localhost:8080/mentorApplication")); // Specify
+                                                                                                "http://localhost:8080/mentorApplication",
+                                                                                                "http://localhost:3000/register")); // Specify
                                                                 // allowed
                                                                 // origins
                                                                 config.setAllowedMethods(List.of("GET", "POST", "PUT",
