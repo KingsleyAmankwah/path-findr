@@ -2956,13 +2956,7 @@ body {
       text-align: center;
     }
   
-    .menu-button {
-      margin-left: auto;
-    }
-  
-    .menu-button.w--open {
-      background-color: transparent;
-    }
+    
   
     .lines {
       position: relative;
@@ -3289,19 +3283,7 @@ body {
       position: relative;
     }
   
-    .menu-button-2 {
-      padding: 12px;
-      border-style: solid;
-      border-width: 1px;
-      border-color: #f3f5fb;
-      border-radius: 8px;
-      color: #393b6a;
-    }
-  
-    .menu-button-2.w--open {
-      border-color: #fff;
-      background-color: #160042;
-    }
+    
   
     .logo-link {
       margin-right: 0px;

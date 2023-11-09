@@ -1,5 +1,5 @@
 import React from 'react';
-import './hero.css';
+import '../styles/hero.css';
 
 const Hero = () => {
   return (
@@ -15,8 +15,8 @@ const Hero = () => {
                   <p>Beginning set. Every the subdue that our for green stars second there god upon.</p>
                 </div>
                 <div className="margin-top margin-medium">
-                  <a href="google.com" className="start-free-btn w-button">Get Started</a>
-                  <a href="/courses" className="radius-sign-btn w-button">Search Courses</a>
+                  {/* <button href="google.com" className="start-free-btn w-button">Get Started</button> */}
+                  {/* <a href="/courses" className="radius-sign-btn w-button">Search Courses</a> */}
                 </div>
               </div>
               <div className="home-header_image-wrapper">
@@ -41,17 +41,17 @@ const Hero = () => {
               <div className="home-stats_component">
                 <div className="home-stats_number-wrapper">
                   <div className="home-stats_number">
-                    <span className="home-stats_green-span">300+</span> Courses
+                    <span className="home-stats_green-span">30+</span> Careers
                   </div>
                 </div>
                 <div className="home-stats_number-wrapper">
                   <div className="home-stats_number">
-                    <span className="home-stats_red-span">2K+</span> Students
+                    <span className="home-stats_red-span">20+</span> Students
                   </div>
                 </div>
                 <div className="home-stats_number-wrapper">
                   <div className="home-stats_number">
-                    <span className="home-stats_yellow-span">50+</span> Teachers
+                    <span className="home-stats_yellow-span">5+</span> Mentors
                   </div>
                 </div>
               </div>

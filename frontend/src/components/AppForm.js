@@ -1,5 +1,8 @@
 import React from 'react';
-import './appform.css'
+import '../styles/appform.css'
+// import '../images/logo.png'
+import logo from'../images/logo.png'
+
 
 export default function AppForm(){
     // const [cvFile, setCvFile] = useState(null);
@@ -16,23 +19,20 @@ export default function AppForm(){
               <div className="information_header">
                 <a href="goo" className="information_brand-link w-inline-block">
                   <img
-                    src="https://assets.website-files.com/62e15c2a619dad59e8549ad0/62e15c2a619dad212b549b5b_FLAGSHIP%20DESIGNER.png"
+                    src={logo}
                     loading="lazy"
-                    width="35"
-                    height="35"
-                    sizes="(max-width: 479px) 15vw, (max-width: 1439px) 35px, (max-width: 1919px) 2vw, 35px"
-                    srcSet="https://assets.website-files.com/62e15c2a619dad59e8549ad0/62e15c2a619dad212b549b5b_FLAGSHIP%2520DESIGNER-p-500.png 500w, https://assets.website-files.com/62e15c2a619dad59e8549ad0/62e15c2a619dad212b549b5b_FLAGSHIP%2520DESIGNER-p-800.png 800w, https://assets.website-files.com/62e15c2a619dad59e8549ad0/62e15c2a619dad212b549b5b_FLAGSHIP%20DESIGNER.png 1080w"
+                    width={90}
                     alt=""
                     className="information_logo"
                   />
                 </a>
               </div>
               <h1 className="display-1 width-80percent">
-                Let's see if we are a good fit.{' '}
-                <span className="text-span-8" >Schedule a call with our team.</span>
+                Join our team of mentors to help shape careers of the youth
+                {/* <span className="text-span-8">Schedule a call with our team.</span> */}
               </h1>
             </div>
-            <div className="information_content hide-tablet">
+            {/* <div className="information_content hide-tablet">
               <p className="width-60percent">
                 We're excited to see if we are a good fit. Expect a response within 24 hours.
               </p>
@@ -45,7 +45,7 @@ export default function AppForm(){
                   Content policy
                 </a>
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="form_section">
             <div className="form_block w-form">
@@ -73,7 +73,7 @@ export default function AppForm(){
                 />
                 <br/>
                 <label for="Last-name" className="form_field-label">
-                 Phone Number
+                  Phone number
                 </label>
                 <br/>
                 <input
@@ -102,22 +102,6 @@ export default function AppForm(){
                   required=""
                 />
                 <br/>
-
-                <select
-                     name="Subject"
-                     id="Subject"
-                    className="form_text-field w-input"
-                  >
-    <option value=""className="form_field-label" >Select specialization</option>
-    <option value="Engineering"className="form_field-label" >Engineering</option>
-    <option value="Business Analysis"className="form_field-label" >Business Analysis</option>
-    <option value="Arts"className="form_field-label">Arts</option>
-    <option value="Humanities" className="form_field-label">Humanities</option>
-    <option value="Social Sciences"className="form_field-label">Social Sciences</option>
-    <option value="Medicine"className="form_field-label">Medicine</option>
-    <option value="Information Technology"className="form_field-label">Information Technology</option>
-  </select>
-                <br/>
                 
                 <label for="CV-file" className="form_field-label">
                 CV File
@@ -126,7 +110,7 @@ export default function AppForm(){
                 <input
                   type="file"
                   accept=".pdf,.doc,.docx" // Specify accepted file types (e.g., PDF, Word documents)
-                  className="form_text-field w-input"
+                  
                  />
                 
                 <input
@@ -162,11 +146,11 @@ export default function AppForm(){
             </div>
           </div>
         </div>
-        <footer id="footer" className="footer black wf-section">
+        {/* <footer id="footer" className="footer black wf-section">
           <div className="container-l w-container">
-            {/* Footer content */}
+         
           </div>
-        </footer>
+        </footer> */}
       </div>
     );
   }

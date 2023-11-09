@@ -1,21 +1,25 @@
-//import logo from './logo.svg';
-//import './App.css';
-//import HeroSection from './home';
-//import Header from './header';
-//import Onboarding from './Onboarding'
-//import Intro from './intro';
-// import Hero from './Hero';
-// import Body from './Body';
-// import GetStarted from './GetStarted';
-//import Login from './Login';
-import AppForm from './AppForm';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './Pages/Home.jsx';
+import Login from './Pages/Login.jsx';
+import Register from './Pages/Register.jsx';
+import Mentor from './Pages/Mentor.jsx';
+import AfterSurvey from './Pages/AfterSurvey.jsx';
+import Survey from './Pages/Survey.jsx';
 
 function App() {
   return (
-    <div>
-    
-    <AppForm/>
-     </div>
+    <Router>
+      <Routes>
+        <Route path="" element={<Home />} /> {/* Route for the root path */}
+        <Route path="/Home" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/mentor" element={<Mentor />} />
+        <Route path="/survey" element={<Survey />} />
+        <Route path="/after-survey" element={<AfterSurvey />} />
+      </Routes>
+    </Router>
   );
 }
 

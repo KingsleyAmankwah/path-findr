@@ -2273,15 +2273,6 @@ body {
       grid-column-gap: 0.25rem;
     }
   
-    .nav_menu-button {
-      background-color: transparent;
-    }
-  
-    .nav_menu-button.w--open {
-      background-color: #fff;
-      color: #0a201c;
-    }
-  
     .all-courses-header_component {
       grid-column-gap: 0rem;
     }

@@ -1,5 +1,5 @@
 import React from 'react';
-import './getstarted.css';
+import '../styles/getstarted.css';
 
 const GetStarted = () => {
   return (
