@@ -6,6 +6,7 @@ import Register from './Pages/Register.jsx';
 import Mentor from './Pages/Mentor.jsx';
 import AfterSurvey from './Pages/AfterSurvey.jsx';
 import Survey from './Pages/Survey.jsx';
+import ChatApp from './Pages/ChatApp.jsx';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/mentor" element={<Mentor />} />
         <Route path="/survey" element={<Survey />} />
         <Route path="/after-survey" element={<AfterSurvey />} />
+        <Route path='/chat-mentor' element={<ChatApp />} />
       </Routes>
     </Router>
   );
