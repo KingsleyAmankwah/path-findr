@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import '../styles/login.css';
+import { toast } from 'react-toastify';
+import Spinner from './Spinner';
 
 function SignUp() {
   //login render
@@ -9,6 +11,7 @@ function SignUp() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const toggleLogin = () => {
     setIsLogin(!isLogin);
@@ -16,13 +19,15 @@ function SignUp() {
   };
 
   //handle submit button
-  const handleClick = (e) => {
+  const handleClick = async (e) => {
     e.preventDefault();
+    setLoading(true);
+
 
     const Student = {username,email,password};
   
-    signUpStudent(Student);
-    
+    await signUpStudent(Student);
+    setLoading(false);
   }
 
   
@@ -33,9 +38,38 @@ function SignUp() {
       body: JSON.stringify(Student)
     });
     const data = await response.text();
+   if(response.status == 200){
+    toast.success(`${data}`);
     console.log(`Response from server: ${data}`);
+   }else{
+    toast.error(`${data}`);
+    console.log(`Response from server: ${data}`);
+   }
+    // console.log(`Response from server: ${response.status}`);
+    // toast.error(`Response from server: ${res}`);
+    // console.log(`Response from server: ${data}`);
   }
 
+  // async function signUpStudent(Student) {
+
+  //     const response = await fetch('http://localhost:8080/signUpStudent', {
+  //       method: 'POST',
+  //       headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify(Student)
+  //     });
+  
+  //     const data = await response.text();
+  //     console.log(`Response from server: ${data}`);
+      
+  //     if (!response.ok) {
+  //       throw new Error(data);
+  //     }
+  //     console.error('Error:', error);
+  //     toast.error(`Error: ${error.message}`);
+  //     return;
+  // }
+
+  if(loading) return <Spinner/>
   return (
     <div className="section_big">
       <div className="modal_small">
@@ -56,7 +90,7 @@ function SignUp() {
             id="email-form"
             name="email-form"
             data-name="Email Form"
-            method="get"
+            // method="get"
             onSubmit={handleClick}
             className="form"
             data-wf-page-id="64b5124a00cf93214c44e4cc"
@@ -117,6 +151,7 @@ function SignUp() {
               value= 'Sign up'
               data-wait="Please wait..."
               className="button_form w-button"
+              onSubmit={handleClick}
             />
             
             <a href="/login" className='text-sm'>Already a member? Login here</a>

@@ -1,5 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Home from './Pages/Home.jsx';
 import Login from './Pages/Login.jsx';
 import Register from './Pages/Register.jsx';
@@ -21,6 +23,7 @@ function App() {
         <Route path="/after-survey" element={<AfterSurvey />} />
         <Route path='/chat-mentor' element={<ChatApp />} />
       </Routes>
+      <ToastContainer />
     </Router>
   );
 }

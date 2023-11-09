@@ -18,6 +18,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Student implements UserDetails {
@@ -125,6 +126,28 @@ public class Student implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    @OneToOne(mappedBy = "student", cascade = CascadeType.ALL) // Add surveyResponse mapping
+    private SurveyResponse surveyResponse;
+
+    public SurveyResponse getSurveyResponse() {
+        return surveyResponse;
+    }
+
+    public void setSurveyResponse(SurveyResponse surveyResponse) {
+        this.surveyResponse = surveyResponse;
+    }
+
+    @Column(name = "specialty", nullable = true)
+    private String specialty;
+
+    public String getSpecialty() {
+        return specialty;
+    }
+
+    public void setSpecialty(String specialty) {
+        this.specialty = specialty;
     }
 
 }
