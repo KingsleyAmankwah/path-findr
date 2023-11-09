@@ -45,15 +45,15 @@ public class MentorServiceImplt implements MentorService {
                 mentorRepository.save(mentor);
 
                 // Send email to admin for verification
-                emailService.sendEmailWithAttachment("omariemmanuel91@gmail.com", "Copy of CV",
-                                "Pathfindr Mentor Application",
-                                mentor.getId());
+                // emailService.sendEmailWithAttachment("omariemmanuel91@gmail.com", "Copy of CV",
+                //                 "Pathfindr Mentor Application",
+                //                 mentor.getId());
 
-                emailService.sendSimpleEmail(mentor.getEmail(),
-                                "Application received successfully and under review.\n Feed back will be given within the next 24 to 72 hours\\n"
-                                                +
-                                                " Thank you.",
-                                "Panthfindr Mentor Application");
+                // emailService.sendSimpleEmail(mentor.getEmail(),
+                //                 "Application received successfully and under review.\n Feed back will be given within the next 24 to 72 hours\\n"
+                //                                 +
+                //                                 " Thank you.",
+                //                 "Panthfindr Mentor Application");
 
         }
 
