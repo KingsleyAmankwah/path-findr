@@ -25,7 +25,7 @@
 </p>
 
 <!-- Status -->
-<h4 align center>
+<h5 align center>
 	# Entire Workflow
 
 1. **Define Career Fields and Scoring System**:
@@ -62,7 +62,7 @@
     - Deploy the combined application to a hosting service.
 10. **User Support and Feedback**:
     - Offer user support and gather feedback from students to enhance the recommendation and chat system.
-</h4>
+</h5>
  <h4 align="center"> 
 	🚧  Path Findr 🚀 Under construction...  🚧
 </h4>  
