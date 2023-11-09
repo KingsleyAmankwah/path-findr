@@ -10,12 +10,12 @@ const Hero = () => {
           <div className="container-medium">
             <div className="home-header_component">
               <div id="w-node-_0c0bc286-180e-ebe4-42b6-078eec31a71a-cb3341c1" className="home-header_content-wrapper">
-                <h1>Education at your fingertips</h1>
+                <h1>Your next step is just a click away</h1>
                 <div className="margin-top margin-medium">
                   <p>Beginning set. Every the subdue that our for green stars second there god upon.</p>
                 </div>
                 <div className="margin-top margin-medium">
-                   <button href="google.com" className="start-free-btn w-button">Get Started</button> 
+                   <a href="/register" className="start-free-btn w-button">Get Started</a> 
                   {/* <a href="/courses" className="radius-sign-btn w-button">Search Courses</a> */}
                 </div>
               </div>
