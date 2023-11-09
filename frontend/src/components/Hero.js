@@ -15,7 +15,7 @@ const Hero = () => {
                   <p>Beginning set. Every the subdue that our for green stars second there god upon.</p>
                 </div>
                 <div className="margin-top margin-medium">
-                  {/* <button href="google.com" className="start-free-btn w-button">Get Started</button> */}
+                   <button href="google.com" className="start-free-btn w-button">Get Started</button> 
                   {/* <a href="/courses" className="radius-sign-btn w-button">Search Courses</a> */}
                 </div>
               </div>

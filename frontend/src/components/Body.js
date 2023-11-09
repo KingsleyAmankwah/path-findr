@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/body.css';
+import mentor from '../images/image1.png'
 
 const Body = () => {
   return (
@@ -13,7 +14,7 @@ const Body = () => {
                 <div
                   style={{
                     backgroundImage:
-                      'url("https://assets-global.website-files.com/5ee56ef342440844d0c728ef/5ee56ef342440830ecc72bcf_David-Warrilow.jpg")',
+                      `${mentor}`
                   }}
                   className="meet-left"
                 >
