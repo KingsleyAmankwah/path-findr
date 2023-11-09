@@ -57,7 +57,7 @@ public class Mentor implements UserDetails {
         this.email = email;
     }
 
-    @Column(name = "password", nullable = false)
+    @Column(name = "password", nullable = true)
     private String password;
 
     public String getPassword() {
@@ -91,7 +91,6 @@ public class Mentor implements UserDetails {
     }
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-
     @JoinTable(name = "mentor_roles", joinColumns = @JoinColumn(name = "mentor_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
     private List<Role> roles = new ArrayList<>();
 
@@ -140,4 +139,25 @@ public class Mentor implements UserDetails {
         this.cv = cv;
     }
 
+    @Column(name = "specialty", nullable = true)
+    private String specialty;
+
+    public String getSpecialty() {
+        return specialty;
+    }
+
+    public void setSpecialty(String specialty) {
+        this.specialty = specialty;
+    }
+
+    @Column(name = "verified", nullable = true)
+    private String verified;
+
+    public String getVerified() {
+        return verified;
+    }
+
+    public void setVerified(String verified) {
+        this.verified = verified;
+    }
 }

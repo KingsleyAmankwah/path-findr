@@ -18,73 +18,79 @@ import org.springframework.web.cors.CorsConfiguration;
 @EnableWebSecurity
 public class SecurityConfig {
 
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        @Bean
+        public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
-        http
-                .cors(cors -> {
-                    cors
-                            .configurationSource(request -> {
-                                CorsConfiguration config = new CorsConfiguration();
-                                config.setAllowedOrigins(
-                                        List.of("/signUp", "http://localhost:8080/data", "http://localhost:3000")); // Specify
-                                // allowed
-                                // origins
-                                config.setAllowedMethods(List.of("GET", "POST", "PUT",
-                                        "DELETE")); // Specify allowed HTTP
-                                // methods
-                                config.setAllowedHeaders(List.of("Content-Type")); // Specify
-                                // allowed
-                                // headers
-                                config.setAllowCredentials(true); // Enable support for
-                                // credentials (e.g.,
-                                // cookies)
-                                return config;
-                            });
-                })
+                http
+                                .cors(cors -> {
+                                        cors
+                                                        .configurationSource(request -> {
+                                                                CorsConfiguration config = new CorsConfiguration();
+                                                                config.setAllowedOrigins(
+                                                                                List.of("/signUp",
+                                                                                                "http://localhost:8080/data",
+                                                                                                "http://localhost:3000",
+                                                                                                "/mentorApplication",
+                                                                                                "http://localhost:8080/mentorApplication")); // Specify
+                                                                // allowed
+                                                                // origins
+                                                                config.setAllowedMethods(List.of("GET", "POST", "PUT",
+                                                                                "DELETE")); // Specify allowed HTTP
+                                                                // methods
+                                                                config.setAllowedHeaders(List.of("Content-Type")); // Specify
+                                                                // allowed
+                                                                // headers
+                                                                config.setAllowCredentials(true); // Enable support for
+                                                                // credentials (e.g.,
+                                                                // cookies)
+                                                                return config;
+                                                        });
+                                })
 
-                .authorizeHttpRequests(
-                        (request) -> request.requestMatchers("/", "/signUp").permitAll()
-                                .requestMatchers("/student/**")
-                                .hasAuthority("STUDENT")
-                                .requestMatchers("/mentor/**").hasAuthority("MENTOR")
-                                .anyRequest()
-                                .permitAll())
-                .formLogin((form) -> form
-                        .loginPage("/login")
-                        .defaultSuccessUrl("/signUp")
-                        .failureUrl("/fail")
-                        .usernameParameter("email")
-                        .passwordParameter("password")
-                        .permitAll()
-                        .failureHandler((request, response, exception) -> {
-                            request.getSession().setAttribute("error",
-                                    "Invalid Credentials");
-                            response.sendRedirect("/login");
-                        }))
-                .logout((logout) -> logout
-                        .invalidateHttpSession(true)
-                        .logoutUrl("/logout")
-                        .logoutSuccessUrl("/login"))
-                .headers((headers) -> headers
-                        .frameOptions(frameOptions -> frameOptions
-                                .sameOrigin()))
-                .csrf(AbstractHttpConfigurer::disable);
+                                .authorizeHttpRequests(
+                                                (request) -> request
+                                                                .requestMatchers("/", "/signUp", "/mentorApplication")
+                                                                .permitAll()
+                                                                .requestMatchers("/student/**")
+                                                                .hasAuthority("STUDENT")
+                                                                .requestMatchers("/mentor/**").hasAuthority("MENTOR")
+                                                                .anyRequest()
+                                                                .permitAll())
+                                .formLogin((form) -> form
+                                                .loginPage("/login")
+                                                .defaultSuccessUrl("/signUp")
+                                                .failureUrl("/fail")
+                                                .usernameParameter("email")
+                                                .passwordParameter("password")
+                                                .permitAll()
+                                                .failureHandler((request, response, exception) -> {
+                                                        request.getSession().setAttribute("error",
+                                                                        "Invalid Credentials");
+                                                        response.sendRedirect("/login");
+                                                }))
+                                .logout((logout) -> logout
+                                                .invalidateHttpSession(true)
+                                                .logoutUrl("/logout")
+                                                .logoutSuccessUrl("/login"))
+                                .headers((headers) -> headers
+                                                .frameOptions(frameOptions -> frameOptions
+                                                                .sameOrigin()))
+                                .csrf(AbstractHttpConfigurer::disable);
 
-        return http.build();
-    }
+                return http.build();
+        }
 
-    // Inject Auth Manager
-    @Bean
-    public AuthenticationManager authenticationManager(
-            AuthenticationConfiguration authenticationConfiguration) throws Exception {
-        return authenticationConfiguration.getAuthenticationManager();
-    }
+        // Inject Auth Manager
+        @Bean
+        public AuthenticationManager authenticationManager(
+                        AuthenticationConfiguration authenticationConfiguration) throws Exception {
+                return authenticationConfiguration.getAuthenticationManager();
+        }
 
-    // inject password Encoder
-    @Bean
-    PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+        // inject password Encoder
+        @Bean
+        PasswordEncoder passwordEncoder() {
+                return new BCryptPasswordEncoder();
+        }
 
 }

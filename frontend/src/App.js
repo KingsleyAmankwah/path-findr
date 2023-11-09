@@ -7,13 +7,14 @@
 // import Hero from './Hero';
 // import Body from './Body';
 // import GetStarted from './GetStarted';
-import Login from './Login';
+//import Login from './Login';
+import AppForm from './AppForm';
 
 function App() {
   return (
     <div>
     
-    <Login/>
+    <AppForm/>
      </div>
   );
 }
