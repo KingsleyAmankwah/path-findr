@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './appform.css'
 
 export default function AppForm(){
@@ -7,6 +7,51 @@ export default function AppForm(){
     // const handleCvFileChange = (e) => {
     //   const file = e.target.files[0]; // Get the selected file
     //   setCvFile(file); // Update the state with the selected file
+
+    const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [specialty, setSpecialty] = useState('');
+  const [cv, setCv] = useState(null);
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setCv(file);
+  };
+
+
+  const handleClick = (e) => {
+    e.preventDefault();
+
+    const Mentor = {username,email,specialty,cv,};
+  
+    signUpStudent(Mentor);
+    
+  }
+
+  // async function signUpStudent(Mentor) {
+  //   const response = await fetch('http://localhost:8080/mentorApplication', {
+  //     method: 'POST',
+  //     headers: { "Content-Type": "application/json" }, // Change "text/plain" to "application/json"
+  //     body: JSON.stringify(Mentor)
+  //   });
+  //   const data = await response.text();
+  //   console.log(`Response from server: ${data}`);
+  // }
+  async function signUpStudent(Mentor) {
+    const formData = new FormData();
+    formData.append('username', Mentor.username);
+    formData.append('email', Mentor.email);
+    formData.append('specialty', Mentor.specialty);
+    formData.append('cv', Mentor.cv);
+  
+    const response = await fetch('http://localhost:8080/mentorApplication', {
+      method: 'POST',
+      body: formData
+    });
+  
+    const data = await response.text();
+    console.log(`Response from server: ${data}`);
+  }
    
     return (
       <div className="body-3">
@@ -57,7 +102,7 @@ export default function AppForm(){
                 className="form"
                 aria-label="Email Form"
               >
-                <label for="First-name" className="form_field-label">
+                <label htmlFor="First-name" className="form_field-label">
                   Your name
                 </label>
                 <br/>
@@ -70,9 +115,11 @@ export default function AppForm(){
                   placeholder="John Doe"
                   id="First-name"
                   required=""
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                 />
                 <br/>
-                <label for="Last-name" className="form_field-label">
+                <label htmlFor="Last-name" className="form_field-label">
                  Phone Number
                 </label>
                 <br/>
@@ -87,7 +134,7 @@ export default function AppForm(){
                   required=""
                 />
                 <br/>
-                <label for="Email" className="form_field-label">
+                <label htmlFor="Email" className="form_field-label">
                   Email address{' '}
                 </label>
                 <br/>
@@ -100,6 +147,8 @@ export default function AppForm(){
                   placeholder="johnsmith@example.com"
                   id="Email"
                   required=""
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
                 <br/>
 
@@ -107,9 +156,11 @@ export default function AppForm(){
                      name="Subject"
                      id="Subject"
                     className="form_text-field w-input"
+                    value={specialty}
+                    onChange={(e) => setSpecialty(e.target.value)}
                   >
     <option value=""className="form_field-label" >Select specialization</option>
-    <option value="Engineering"className="form_field-label" >Engineering</option>
+    <option value="Engineering"className="form_field-label"  >Engineering</option>
     <option value="Business Analysis"className="form_field-label" >Business Analysis</option>
     <option value="Arts"className="form_field-label">Arts</option>
     <option value="Humanities" className="form_field-label">Humanities</option>
@@ -119,7 +170,7 @@ export default function AppForm(){
   </select>
                 <br/>
                 
-                <label for="CV-file" className="form_field-label">
+                <label htmlFor="CV-file" className="form_field-label">
                 CV File
               </label>
               <br />
@@ -127,6 +178,7 @@ export default function AppForm(){
                   type="file"
                   accept=".pdf,.doc,.docx" // Specify accepted file types (e.g., PDF, Word documents)
                   className="form_text-field w-input"
+                  onChange={handleFileChange}
                  />
                 
                 <input
@@ -134,11 +186,12 @@ export default function AppForm(){
                   value="Request a quote"
                   data-wait="Please wait..."
                   className="button mg-top-36px w-button"
+                  onClick={handleClick}
                 />
               </form>
               <div
                 className="form_success-message w-form-done"
-                tabindex="-1"
+                tabIndex="-1"
                 role="region"
                 aria-label="Email Form success"
               >
@@ -146,7 +199,7 @@ export default function AppForm(){
               </div>
               <div
                 className="form_error-message w-form-fail"
-                tabindex="-1"
+                tabIndex="-1"
                 role="region"
                 aria-label="Email Form failure"
               >
