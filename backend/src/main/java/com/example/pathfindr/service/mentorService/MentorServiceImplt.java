@@ -18,43 +18,43 @@ import jakarta.mail.MessagingException;
 @Service
 public class MentorServiceImplt implements MentorService {
 
-    @Autowired
-    private MentorRepository mentorRepository;
+        @Autowired
+        private MentorRepository mentorRepository;
 
-    @Autowired
-    private ValidationService validationService;
+        @Autowired
+        private ValidationService validationService;
 
-    @Autowired
-    private EmailService emailService;
+        @Autowired
+        private EmailService emailService;
 
-    @Autowired
-    private RoleRepository roleRepository;
+        @Autowired
+        private RoleRepository roleRepository;
 
-    @Override
-    public void saveMentor(Mentor mentor) throws MessagingException, IOException {
+        @Override
+        public void saveMentor(Mentor mentor) throws MessagingException, IOException {
 
-        // Validate Mentor Input
-        validationService.validateUsername(mentor.getUsername());
-        validationService.validateEmail(mentor.getEmail());
-        validationService.validatePassword(mentor.getPassword());
+                // Validate Mentor Input
+                validationService.validateUsername(mentor.getUsername());
+                validationService.validateEmail(mentor.getEmail());
+                // validationService.validatePassword(mentor.getPassword());
 
-        // Set Role
-        Role role = roleRepository.findByName("MENTOR").get();
-        mentor.setRoles(Collections.singletonList(role));
+                // Set Role
+                Role role = roleRepository.findByName("MENTOR").get();
+                mentor.setRoles(Collections.singletonList(role));
 
+                mentorRepository.save(mentor);
 
-        mentorRepository.save(mentor);
+                // Send email to admin for verification
+                emailService.sendEmailWithAttachment("omariemmanuel91@gmail.com", "Copy of CV",
+                                "Pathfindr Mentor Application",
+                                mentor.getId());
 
-        // Send email to admin for verification
-        emailService.sendEmailWithAttachment("omariemmanuel91@gmail.com", "Copy of CV", "Pathfindr Mentor Application",
-                mentor.getId());
+                emailService.sendSimpleEmail(mentor.getEmail(),
+                                "Application received successfully and under review.\n Feed back will be given within the next 24 to 72 hours\\n"
+                                                +
+                                                " Thank you.",
+                                "Panthfindr Mentor Application");
 
-        emailService.sendSimpleEmail(mentor.getEmail(),
-                "Application received successfully and under review.\n Feed back will be given within the next 24 to 72 hours\\n"
-                        + 
-                        " Thank you.",
-                "Panthfindr Mentor Application");
-
-    }
+        }
 
 }

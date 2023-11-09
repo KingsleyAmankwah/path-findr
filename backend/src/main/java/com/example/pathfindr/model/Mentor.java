@@ -57,7 +57,7 @@ public class Mentor implements UserDetails {
         this.email = email;
     }
 
-    @Column(name = "password", nullable = false)
+    @Column(name = "password", nullable = true)
     private String password;
 
     public String getPassword() {
@@ -139,7 +139,7 @@ public class Mentor implements UserDetails {
         this.cv = cv;
     }
 
-    @Column(name = "specialty", nullable = false)
+    @Column(name = "specialty", nullable = true)
     private String specialty;
 
     public String getSpecialty() {
@@ -150,7 +150,7 @@ public class Mentor implements UserDetails {
         this.specialty = specialty;
     }
 
-    @Column(name = "verified", nullable = false)
+    @Column(name = "verified", nullable = true)
     private String verified;
 
     public String getVerified() {
