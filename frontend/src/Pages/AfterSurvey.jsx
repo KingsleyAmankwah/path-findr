@@ -1,30 +1,30 @@
-import React from 'react';
-import PersonalityComponent from '../components/MyPersonality';
-import MentorFind from '../components/MentorFind';
-import Navbar from '../components/Navbar';
+import React from "react";
+import PersonalityComponent from "../components/MyPersonality";
+import MentorFind from "../components/MentorFind";
+import Navbar from "../components/Navbar";
 
 const containerStyle = {
-  display: 'flex',           // Use a flex container
-  justifyContent: 'center',  // Center the items horizontally
+  display: "flex",
+  justifyContent: "center",
 };
 
 const componentStyle = {
-  display: 'inline-block',   // Set the components to inline-block
-  margin: '10px',            // Add some spacing between components
+  display: "inline-block",
+  margin: "10px",
 };
 
 const AfterSurvey = () => {
   return (
     <div>
-        <Navbar/>
-    <div style={containerStyle}>
-      <div style={componentStyle}>
-        <PersonalityComponent />
+      <Navbar />
+      <div style={containerStyle}>
+        <div style={componentStyle}>
+          <PersonalityComponent />
+        </div>
+        <div style={componentStyle}>
+          <MentorFind />
+        </div>
       </div>
-      <div style={componentStyle}>
-        <MentorFind />
-      </div>
-    </div>
     </div>
   );
 };
