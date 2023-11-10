@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/body.css';
-import mentor from '../images/mentor.png'
+import mentor from '../images/mentor1.png'
 
 const Body = () => {
   return (
@@ -20,23 +20,6 @@ const Body = () => {
                 >
                   <div className="elements-block">
                     <div
-                      className="row _1"
-                      style={{
-                        opacity: 1,
-                        transform:
-                          'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)',
-                        transformStyle: 'preserve-3d',
-                      }}
-                    >
-                      <div
-                        style={{
-                          backgroundImage:
-                            'url("https://assets-global.website-files.com/5ee56ef342440844d0c728ef/5ee56ef3424408ea11c72b72_Icon%201%20Media.svg")',
-                        }}
-                        className="icon-1"
-                      ></div>
-                    </div>
-                    <div
                       className="row _2"
                       style={{
                         opacity: 1,
@@ -45,13 +28,7 @@ const Body = () => {
                         transformStyle: 'preserve-3d',
                       }}
                     >
-                      <div
-                        style={{
-                          backgroundImage:
-                            'url("https://assets-global.website-files.com/5ee56ef342440844d0c728ef/5ee56ef342440843a1c72b71_Icon%202%20Media.svg")',
-                        }}
-                        className="icon-2"
-                      ></div>
+                    
                       <div className="meet-block">
                         <div className="meet-flex">
                           <div className="meet-arrow">
@@ -60,29 +37,13 @@ const Body = () => {
                               alt="David Warrilow"
                             ></img>
                           </div>
-                          <div className="meet-text">
-                            <div>Meet David</div>
+                          <div className="meet-text" style={{fontSize:'8'}}>
+                            <div >Meet Amankwaah</div>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div
-                      className="row _3"
-                      style={{
-                        opacity: 1,
-                        transform:
-                          'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)',
-                        transformStyle: 'preserve-3d',
-                      }}
-                    >
-                      <div
-                        style={{
-                          backgroundImage:
-                            'url("https://assets-global.website-files.com/5ee56ef342440844d0c728ef/5ee56ef34244081252c72b7a_Icon%203%20Media.svg")',
-                        }}
-                        className="icon-3"
-                      ></div>
-                    </div>
+        
                     <div
                       className="row _4"
                       style={{
@@ -93,19 +54,18 @@ const Body = () => {
                       }}
                     >
                       <a
-                        href="/team-member/david-warrilow"
+                        href="/login"
                         className="short-bio w-inline-block"
                       >
                         <div className="block"></div>
                         <div className="text-wrap">
                           <div>
                             <p className="gibson-special">
-                              David has spent over twenty-five years working professionally in the film and television industry.
-                            </p>
+                            Meet Amankwaah, a seasoned professional with a wealth of experience in psychology, committed to fostering your growth.</p>
                           </div>
                           <div className="more-clickthrough">
                             <div>
-                              <div className="allcaps-sml bold">Meet David</div>
+                              <div className="allcaps-sml bold">Meet Amankwaah</div>
                             </div>
                             <div className="more-clickthrough-arrow">
                               <img
@@ -121,7 +81,7 @@ const Body = () => {
                     </div>
                   </div>
                 </div>
-                <div className="meet-team-member-right">
+                <div className="meet-team-member-right" style={{marginRight:-30}}>
                   <div className="flex-wrap">
                     <div>
                       <div className="allcaps-sml red-emphasis-text">
@@ -129,21 +89,18 @@ const Body = () => {
                       </div>
                     </div>
                     <div>
-                      <h2>Intimate, practical learning from real-world experts.</h2>
+                      <h2>At PathFindr, we promise unwavering support on your journey to success</h2>
                     </div>
                     <div>
                       <p>
-                        A no-nonsense approach to learning with smaller classes, hand-picked subjects to get you job-ready for when it's time to graduate.
-                      </p>
+                      Our commitment is to provide personalized mentorship, empowering you with the knowledge and guidance needed to achieve your career aspirations.</p>
                     </div>
                     <a
                       href="https://australian-institute-advanced-studies.webflow.io/about-aias#Team-section"
                       className="button-master alternate w-inline-block"
                       style={{ opacity: 0 }}
                     >
-                      <div className="button-text-wrap">
-                        <div>Meet your educators </div>
-                      </div>
+                      
                       <div>
                         <img
                           src="https://assets.website-files.com/5ee56ef2b699d6efa2986496/5ee56ef34244080c51c729a1_Black%20Chevron.svg"
@@ -232,7 +189,7 @@ const Section = () => {
                 />
                 <img
                   src="https://assets.website-files.com/5ee56ef2b699d6efa2986496/5ee56ef3424408329fc72961_5e51faee2c16e83a5a0e7232_arrow-down.svg"
-                  height={150}
+                  size={1}
                   alt=""
                   className="arrow-image-mobile"
                 />
@@ -258,7 +215,7 @@ const Section = () => {
                 />
                 <img
                   src="https://assets.website-files.com/5ee56ef2b699d6efa2986496/5ee56ef342440875cdc72950_5e51faee2c16e8799f0e7231_arrow-down-02.svg"
-                  height={150}
+                  height={4}
                   alt=""
                   className="arrow-image-mobile-02"
                 />

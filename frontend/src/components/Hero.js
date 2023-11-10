@@ -10,9 +10,10 @@ const Hero = () => {
           <div className="container-medium">
             <div className="home-header_component">
               <div id="w-node-_0c0bc286-180e-ebe4-42b6-078eec31a71a-cb3341c1" className="home-header_content-wrapper">
-                <h1>Your next step is just a click away</h1>
+                <h1> Empower your future – connect with mentors dedicated to helping you grow and thrive</h1>
                 <div className="margin-top margin-medium">
-                  <p>Beginning set. Every the subdue that our for green stars second there god upon.</p>
+                  <p>Unlock Your Potential: Navigate your career journey with our personalized survey
+                     and discover tailored mentorship to guide you towards success</p>
                 </div>
                 <div className="margin-top margin-medium">
                    <a href="/register" className="start-free-btn w-button">Get Started</a> 

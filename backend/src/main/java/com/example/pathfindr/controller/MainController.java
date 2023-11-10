@@ -42,7 +42,7 @@ public class MainController {
     public ResponseEntity<String> addNewUser(@RequestBody Student student) {
         try {
             studentService.saveStudent(student);
-            return ResponseEntity.ok("Student added successfully");
+            return ResponseEntity.ok("Registration successful");
         }
 
         catch (Exception e) {
@@ -128,7 +128,7 @@ public class MainController {
             }
         }
 
-        return "Your top three fields are: " + String.join(", ", topFields);
+        return String.join(", ", topFields);
     }
 
 }

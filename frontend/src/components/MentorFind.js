@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/body.css'
+import mentor from "../images/mentor.png";
 
 const MentorFind = () => {
   return (
@@ -7,24 +8,24 @@ const MentorFind = () => {
       <div>
         <img
           alt=""
-          src="https://assets.website-files.com/5ee56ef342440844d0c728ef/5ee56ef34244087677c72ba9_HS_Noel-Higginbotham.jpg"
+          src={mentor}
           className="scaleable-image drop-shadow-sml"
         />
       </div>
       <div className="name-label">
-        <h4 className="centred normal-weight">Noel Higginbotham</h4>
+        <h4 className="centred normal-weight">John Doe</h4>  
       </div>
       <div>
-        <h4 className="centred superscript-caps light">Director & Lecturer</h4>
+        {/* <h4 className="centred superscript-caps light">Director & Lecturer</h4> */}
       </div>
       <div>
         <a href="/school/engineering" className="label-master w-inline-block">
-          <div>School of Engineering</div>
+          <div>Specialty</div>
         </a>
       </div>
       <div>
-        <a href="/team-member/noel-higginbotham" className="action-button wider coloured-text nomargin w-inline-block">
-          <div>Meet Noel</div>
+        <a target='_blank' href="http://192.168.23.32:3000" className="action-button wider coloured-text nomargin w-inline-block">
+          <div>Chat your Mentor</div>
         </a>
       </div>
     </div>

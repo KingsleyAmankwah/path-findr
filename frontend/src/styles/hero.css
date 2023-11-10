@@ -2815,12 +2815,6 @@ body {
       top: -1.5rem;
     }
   
-    .footer_socials-wrapper {
-      -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-    }
-  
     .courses-videos_component {
       padding-right: 0.5rem;
       padding-left: 0.5rem;
@@ -2875,7 +2869,9 @@ body {
       -ms-grid-column-align: center;
       justify-self: center;
     }
-  
+    .nav-flex{
+      margin-bottom: 0px;
+    }
     #w-node-c0cebcc9-d451-cbac-2c4c-697da3272c49-a3272c3b {
       -ms-grid-column-align: center;
       justify-self: center;

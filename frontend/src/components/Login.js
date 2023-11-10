@@ -1,7 +1,27 @@
-import React from 'react';
+import React,{useState} from 'react';
 import '../styles/login.css';
 
 function Logon() {
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleClick = async (e) => {
+    e.preventDefault();
+   
+    const Student = {email,password};
+  
+    await signUpStudent(Student);
+    
+  }
+
+  async function signUpStudent(Student) {
+    const response = await fetch('http://localhost:8080/mentor/login', {
+      method: 'POST',
+      headers: { "Content-Type": "application/json" }, // Change "text/plain" to "application/json"
+      body: JSON.stringify(Student)
+    });
+  }
 
   return (
     <div className="section_big">
@@ -23,7 +43,7 @@ function Logon() {
             id="email-form"
             name="email-form"
             data-name="Email Form"
-            method="get"
+            // method="get"
            
             className="form"
             data-wf-page-id="64b5124a00cf93214c44e4cc"
@@ -44,6 +64,8 @@ function Logon() {
                   placeholder="Enter your email"
                   id="Email-3"
                   data-ms-member="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
 
@@ -57,6 +79,8 @@ function Logon() {
                 placeholder="********"
                 id="Password-3"
                 data-ms-member="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
             
@@ -66,6 +90,7 @@ function Logon() {
               value= 'Login'
               data-wait="Please wait..."
               className="button_form w-button"
+              onClick={handleClick}
             />
 
             <a href="/register" className='text-sm'>New here? Create account</a>
@@ -76,5 +101,6 @@ function Logon() {
     </div>
   );
 }
+
 
 export default Logon;

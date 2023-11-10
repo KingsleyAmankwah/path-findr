@@ -165,7 +165,7 @@ export default function AppForm(){
                 
                 <input
                   type="submit"
-                  value="Request a quote"
+                  value="Sign Up"
                   data-wait="Please wait..."
                   className="button mg-top-36px w-button"
                 />

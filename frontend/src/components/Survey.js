@@ -183,11 +183,11 @@ function Survey() {
 
   return (
     <div className="mx-auto max-w-screen-lg p-4">
-      <h1 className="text-2xl font-bold mb-4">Survey</h1>
+      <h1 className="text-3xl text-center py-4 font-bold mb-4">Fill out this form to continue</h1>
       <form>
         {questions.map((question, index) => (
           <div key={index} className="mb-4">
-            <p className="font-semibold">{question.question}</p>
+            <p className="font-semibold text-green-700">{question.question}</p>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
               {question.options.map((option, optionIndex) => (
                 <div
@@ -195,8 +195,8 @@ function Survey() {
                   onClick={() => handleResponse(index, optionIndex)}
                   className={`border p-4 cursor-pointer rounded-lg ${
                     responses[`question${index}`] === optionIndex
-                      ? "bg-blue-200"
-                      : "bg-white"
+                      ? "bg-green-200"
+                      : "bg-white text-black hover:bg-yellow-200"
                   }`}
                 >
                   <label>{option}</label>

@@ -1,7 +1,6 @@
 import React from "react";
 import PersonalityComponent from "../components/MyPersonality";
 import MentorFind from "../components/MentorFind";
-import Navbar from "../components/Navbar";
 
 const containerStyle = {
   display: "flex",
@@ -16,8 +15,7 @@ const componentStyle = {
 const AfterSurvey = () => {
   return (
     <div>
-      <Navbar />
-      <div style={containerStyle}>
+      <div style={containerStyle} className="grid grid-cols-1 md:grid-cols-2">
         <div style={componentStyle}>
           <PersonalityComponent />
         </div>
