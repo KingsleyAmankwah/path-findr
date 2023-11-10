@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import '../styles/login.css';
 import { toast } from 'react-toastify';
 import Spinner from './Spinner';
+import { useNavigate } from 'react-router-dom';
 
 function SignUp() {
   //login render
@@ -12,11 +13,7 @@ function SignUp() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
-
-  const toggleLogin = () => {
-    setIsLogin(!isLogin);
-   
-  };
+  const navigate = useNavigate();
 
   //handle submit button
   const handleClick = async (e) => {
@@ -40,6 +37,7 @@ function SignUp() {
     const data = await response.text();
    if(response.status == 200){
     toast.success(`${data}`);
+    navigate('/survey');
     console.log(`Response from server: ${data}`);
    }else{
     toast.error(`${data}`);

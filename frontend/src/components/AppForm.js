@@ -25,7 +25,7 @@ export default function AppForm(){
   const handleClick = (e) => {
     e.preventDefault();
 
-    const Mentor = {username,email,specialty,cv,};
+    const Mentor = {username,email,specialty,cv};
   
     signUpStudent(Mentor);
     
@@ -119,7 +119,7 @@ export default function AppForm(){
                   onChange={(e) => setUsername(e.target.value)}
                 />
                 <br/>
-                <label for="Last-name" className="form_field-label">
+                <label htmlFor="Last-name" className="form_field-label">
                   Phone number
                 </label>
                 <br/>
@@ -159,6 +159,7 @@ export default function AppForm(){
                 <input
                   type="file"
                   accept=".pdf,.doc,.docx" // Specify accepted file types (e.g., PDF, Word documents)
+                  onChange={(e) => setCv(e.target.files[0])}
                   
                  />
                 

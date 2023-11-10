@@ -2,6 +2,9 @@ import React from 'react';
 import '../styles/body.css'
 
 const PersonalityComponent = () => {
+
+  const params = new URLSearchParams(window.location.search);
+
   return (
     <div className="meet-team-member-right">
       <div>
@@ -20,6 +23,7 @@ const PersonalityComponent = () => {
         >
           A no-nonsense approach to learning with smaller classes, hand-picked subjects to get you job-ready for when it's time to graduate.
         </p>
+        <p>{params.get("data")}</p>
         
       </div>
     </div>

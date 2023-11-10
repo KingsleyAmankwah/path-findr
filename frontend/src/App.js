@@ -7,8 +7,9 @@ import Login from './Pages/Login.jsx';
 import Register from './Pages/Register.jsx';
 import Mentor from './Pages/Mentor.jsx';
 import AfterSurvey from './Pages/AfterSurvey.jsx';
-import Survey from './Pages/Survey.jsx';
+import Survey from './components/Survey.js';
 import ChatApp from './Pages/ChatApp.jsx';
+import Fields from './Pages/Fields.jsx';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/mentor" element={<Mentor />} />
         <Route path="/survey" element={<Survey />} />
+        <Route path="/fields" element={<Fields/>} />
         <Route path="/after-survey" element={<AfterSurvey />} />
         <Route path='/chat-mentor' element={<ChatApp />} />
       </Routes>
