@@ -32,7 +32,8 @@ public class SecurityConfig {
                                                                                                 "http://localhost:3000/register",
                                                                                                 "http://localhost:3000/mentor",
                                                                                                 "/mentorApplication",
-                                                                                                "http://localhost:3000")); // Specify
+                                                                                                "http://localhost:3000",
+                                                                                                "http://localhost:3000/login")); // Specify
                                                                 // allowed
                                                                 // origins
                                                                 config.setAllowedMethods(List.of("GET", "POST", "PUT",
@@ -58,7 +59,7 @@ public class SecurityConfig {
                                                                 .anyRequest()
                                                                 .permitAll())
                                 .formLogin((form) -> form
-                                                .loginPage("/login")
+                                                .loginPage("http://localhost:3000/login")
                                                 .defaultSuccessUrl("/signUp")
                                                 .failureUrl("/fail")
                                                 .usernameParameter("email")

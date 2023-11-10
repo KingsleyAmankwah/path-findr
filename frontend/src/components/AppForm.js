@@ -1,19 +1,18 @@
-import React,{useState} from 'react';
-import '../styles/appform.css'
+import React, { useState } from "react";
+import "../styles/appform.css";
 // import '../images/logo.png'
-import logo from'../images/logo.png'
+import logo from "../images/logo.png";
 
+export default function AppForm() {
+  // const [cvFile, setCvFile] = useState(null);
 
-export default function AppForm(){
-    // const [cvFile, setCvFile] = useState(null);
+  // const handleCvFileChange = (e) => {
+  //   const file = e.target.files[0]; // Get the selected file
+  //   setCvFile(file); // Update the state with the selected file
 
-    // const handleCvFileChange = (e) => {
-    //   const file = e.target.files[0]; // Get the selected file
-    //   setCvFile(file); // Update the state with the selected file
-
-    const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [specialty, setSpecialty] = useState('');
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [specialty, setSpecialty] = useState("");
   const [cv, setCv] = useState(null);
 
   const handleFileChange = (e) => {
@@ -21,15 +20,13 @@ export default function AppForm(){
     setCv(file);
   };
 
-
   const handleClick = (e) => {
     e.preventDefault();
 
     const Mentor = {username,email,specialty,cv};
   
     signUpStudent(Mentor);
-    
-  }
+  };
 
   // async function signUpStudent(Mentor) {
   //   const response = await fetch('http://localhost:8080/mentorApplication', {
@@ -40,44 +37,85 @@ export default function AppForm(){
   //   const data = await response.text();
   //   console.log(`Response from server: ${data}`);
   // }
+
+  // async function signUpStudent(mentor) {
+  //   const formData = new FormData();
+  //   formData.append("username", mentor.username);
+  //   formData.append("email", mentor.email);
+  //   formData.append("specialty", mentor.specialty);
+  //   formData.append("cv", mentor.cv);
+
+  //   try {
+  //     const response = await fetch("http://localhost:8080/mentorApplication", {
+  //       method: "POST",
+  //       body: formData,
+  //     });
+
+  //     if (response.ok) {
+  //       const data = await response.text();
+  //       console.log(`Response from server: ${data}`);
+  //     } else {
+  //       // Handle error
+  //       const errorMessage = await response.text();
+  //       console.error(`Error: ${errorMessage}`);
+  //     }
+  //   } catch (error) {
+  //     console.error("Error:", error);
+  //   }
+  // }
+
   async function signUpStudent(Mentor) {
     const formData = new FormData();
-    formData.append('username', Mentor.username);
-    formData.append('email', Mentor.email);
-    formData.append('specialty', Mentor.specialty);
-    formData.append('cv', Mentor.cv);
-  
-    const response = await fetch('http://localhost:8080/mentorApplication', {
-      method: 'POST',
-      body: formData
-    });
-  
-    const data = await response.text();
-    console.log(`Response from server: ${data}`);
+    formData.append("username", Mentor.username);
+    formData.append("email", Mentor.email);
+    formData.append("specialty", Mentor.specialty);
+
+    // Check if cv is present and not null or undefined
+    if (Mentor.cv !== null && Mentor.cv !== undefined) {
+      formData.append("cv", Mentor.cv);
+    }
+
+    try {
+      const response = await fetch("http://localhost:8080/mentorApplication", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        const data = await response.text();
+        console.log(`Response from server: ${data}`);
+      } else {
+        // Handle error
+        const errorMessage = await response.text();
+        console.error(`Error: ${errorMessage}`);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
   }
-   
-    return (
-      <div className="body-3">
-        <div className="page-wrapper wf-section">
-          <div className="information_section background-color neutral-200">
-            <div className="information_content">
-              <div className="information_header">
-                <a href="goo" className="information_brand-link w-inline-block">
-                  <img
-                    src={logo}
-                    loading="lazy"
-                    width={90}
-                    alt=""
-                    className="information_logo"
-                  />
-                </a>
-              </div>
-              <h1 className="display-1 width-80percent">
-                Join our team of mentors to help shape careers of the youth
-                {/* <span className="text-span-8">Schedule a call with our team.</span> */}
-              </h1>
+
+  return (
+    <div className="body-3">
+      <div className="page-wrapper wf-section">
+        <div className="information_section background-color neutral-200">
+          <div className="information_content">
+            <div className="information_header">
+              <a href="goo" className="information_brand-link w-inline-block">
+                <img
+                  src={logo}
+                  loading="lazy"
+                  width={90}
+                  alt=""
+                  className="information_logo"
+                />
+              </a>
             </div>
-            {/* <div className="information_content hide-tablet">
+            <h1 className="display-1 width-80percent">
+              Join our team of mentors to help shape careers of the youth
+              {/* <span className="text-span-8">Schedule a call with our team.</span> */}
+            </h1>
+          </div>
+          {/* <div className="information_content hide-tablet">
               <p className="width-60percent">
                 We're excited to see if we are a good fit. Expect a response within 24 hours.
               </p>
@@ -201,9 +239,6 @@ export default function AppForm(){
          
           </div>
         </footer> */}
-      </div>
-    );
-  }
-
-
-
+    </div>
+  );
+}
