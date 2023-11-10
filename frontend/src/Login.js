@@ -7,20 +7,20 @@ function Login() {
   const [isLogin, setIsLogin] = useState(false);
 
   //
-  const [username, setUsername] = useState('');
+  // const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const toggleLogin = () => {
-    setIsLogin(!isLogin);
+  // const toggleLogin = () => {
+  //   setIsLogin(!isLogin);
    
-  };
+  // };
 
   //handle submit button
   const handleClick = (e) => {
     e.preventDefault();
 
-    const Student = {username,email,password};
+    const Student = {email,password};
   
     signUpStudent(Student);
     
@@ -36,15 +36,15 @@ function Login() {
   //   console.log(data);
   // }
 
-  async function signUpStudent(Student) {
-    const response = await fetch('http://localhost:8080/signUpStudent', {
-      method: 'POST',
-      headers: { "Content-Type": "application/json" }, // Change "text/plain" to "application/json"
-      body: JSON.stringify(Student)
-    });
-    const data = await response.text();
-    console.log(`Response from server: ${data}`);
-  }
+  // async function signUpStudent(Student) {
+  //   const response = await fetch('http://localhost:8080/signUpStudent', {
+  //     method: 'POST',
+  //     headers: { "Content-Type": "application/json" }, // Change "text/plain" to "application/json"
+  //     body: JSON.stringify(Student)
+  //   });
+  //   const data = await response.text();
+  //   console.log(`Response from server: ${data}`);
+  // }
 
 
   return (
