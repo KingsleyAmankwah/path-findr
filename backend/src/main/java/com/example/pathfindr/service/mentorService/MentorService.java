@@ -9,4 +9,5 @@ import jakarta.mail.MessagingException;
 public interface MentorService {
 
         void saveMentor(Mentor mentor) throws MessagingException, IOException;
+
 }

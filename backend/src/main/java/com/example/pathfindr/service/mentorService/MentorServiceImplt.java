@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Collections;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.pathfindr.model.Mentor;
@@ -30,6 +31,9 @@ public class MentorServiceImplt implements MentorService {
         @Autowired
         private RoleRepository roleRepository;
 
+        @Autowired
+        private PasswordGenerator passwordGenerator;
+
         @Override
         public void saveMentor(Mentor mentor) throws MessagingException, IOException {
 
@@ -42,20 +46,26 @@ public class MentorServiceImplt implements MentorService {
                 Role role = roleRepository.findByName("MENTOR").get();
                 mentor.setRoles(Collections.singletonList(role));
 
+                String mentorPassword = passwordGenerator.generatePassword();
+
+                // mentor.setPassword(mentorPassword);
+
+                mentor.setPassword(new BCryptPasswordEncoder().encode(mentorPassword));
+                
+                mentor.setVerified("no");
+
                 mentorRepository.save(mentor);
 
                 // Send email to admin for verification
-                // emailService.sendEmailWithAttachment("omariemmanuel91@gmail.com", "Copy of
-                // CV",
-                // "Pathfindr Mentor Application",
-                // mentor.getId());
+                emailService.sendEmailWithAttachment("omariemmanuel91@gmail.com", "Copy ofCV",
+                                "Pathfindr Mentor Application",
+                                mentor.getId());
 
-                // emailService.sendSimpleEmail(mentor.getEmail(),
-                // "Application received successfully and under review.\n Feed back will be
-                // given within the next 24 to 72 hours\\n"
-                // +
-                // " Thank you.",
-                // "Panthfindr Mentor Application");
+                emailService.sendSimpleEmail(mentor.getEmail(),
+                                "Application received successfully and under review.\n Feed back will be given within the next 24 to 72 hours\\n"
+                                                +
+                                                " Thank you.",
+                                "Panthfindr Mentor Application");
 
         }
 
