@@ -154,4 +154,6 @@ public class Student implements UserDetails {
     @OneToMany(mappedBy = "student")
     private List<MentorStudentMapping> mentorStudentMappings;
 
+   
+
 }

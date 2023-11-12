@@ -14,4 +14,6 @@ public interface StudentService {
 
     Student getAuthenticatedStudent(Authentication authentication, Student student);
 
+    Student getLatesStudent();
+
 }

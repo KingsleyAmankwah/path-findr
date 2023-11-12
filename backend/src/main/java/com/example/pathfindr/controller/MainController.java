@@ -18,6 +18,7 @@ import com.example.pathfindr.model.Student;
 import com.example.pathfindr.model.SurveyResponse;
 import com.example.pathfindr.repository.RoleRepository;
 import com.example.pathfindr.repository.StudentRepository;
+import com.example.pathfindr.repository.SurveyResponseRepository;
 import com.example.pathfindr.service.mentorService.MentorService;
 import com.example.pathfindr.service.studentService.StudentService;
 
@@ -37,6 +38,9 @@ public class MainController {
 
     @Autowired
     MentorService mentorService;
+
+    @Autowired
+    SurveyResponseRepository surveyResponseRepository;
 
     @PostMapping("/signUpStudent")
     public ResponseEntity<String> addNewUser(@RequestBody Student student) {
@@ -89,23 +93,77 @@ public class MainController {
 
     }
 
+    // @PostMapping("/processSurvey")
+    // public String processSurvey(@RequestBody SurveyResponse surveyResponse) {
+
+    // String[] fieldNames = {
+
+    // "Engineering",
+
+    // "Business Analysis",
+
+    // "Medicine",
+
+    // "Art",
+
+    // "Social Sciences",
+
+    // "Humanities",
+
+    // "Information Technology"
+    // };
+
+    // int[] scores = new int[fieldNames.length];
+
+    // scores[surveyResponse.getAnswerQuestion1()]++;
+    // scores[surveyResponse.getAnswerQuestion2()]++;
+    // scores[surveyResponse.getAnswerQuestion3()]++;
+    // scores[surveyResponse.getAnswerQuestion4()]++;
+    // scores[surveyResponse.getAnswerQuestion5()]++;
+    // scores[surveyResponse.getAnswerQuestion6()]++;
+    // scores[surveyResponse.getAnswerQuestion7()]++;
+    // scores[surveyResponse.getAnswerQuestion8()]++;
+    // scores[surveyResponse.getAnswerQuestion9()]++;
+
+    // List<String> topFields = new ArrayList<>();
+
+    // for (int i = 0; i < 3; i++) {
+
+    // int maxScore = -1;
+
+    // int maxIndex = -1;
+
+    // for (int j = 0; j < scores.length; j++) {
+
+    // if (scores[j] > maxScore) {
+
+    // maxScore = scores[j];
+
+    // maxIndex = j;
+    // }
+    // }
+
+    // if (maxIndex != -1) {
+
+    // topFields.add(fieldNames[maxIndex]);
+
+    // scores[maxIndex] = -1; // Mark as visited
+    // }
+    // }
+
+    // return String.join(", ", topFields);
+    // }
+
     @PostMapping("/processSurvey")
     public String processSurvey(@RequestBody SurveyResponse surveyResponse) {
 
         String[] fieldNames = {
-
                 "Engineering",
-
                 "Business Analysis",
-
                 "Medicine",
-
                 "Art",
-
                 "Social Sciences",
-
                 "Humanities",
-
                 "Information Technology"
         };
 
@@ -121,33 +179,27 @@ public class MainController {
         scores[surveyResponse.getAnswerQuestion8()]++;
         scores[surveyResponse.getAnswerQuestion9()]++;
 
-        List<String> topFields = new ArrayList<>();
+        int maxScore = -1;
+        int maxIndex = -1;
 
-        for (int i = 0; i < 3; i++) {
-
-            int maxScore = -1;
-
-            int maxIndex = -1;
-
-            for (int j = 0; j < scores.length; j++) {
-
-                if (scores[j] > maxScore) {
-
-                    maxScore = scores[j];
-
-                    maxIndex = j;
-                }
-            }
-
-            if (maxIndex != -1) {
-
-                topFields.add(fieldNames[maxIndex]);
-
-                scores[maxIndex] = -1; // Mark as visited
+        for (int j = 0; j < scores.length; j++) {
+            if (scores[j] > maxScore) {
+                maxScore = scores[j];
+                maxIndex = j;
             }
         }
 
-        return String.join(", ", topFields);
+        Student newStudent = studentService.getLatesStudent();
+
+        surveyResponse.setStudent(newStudent);
+
+        newStudent.setSpecialty(fieldNames[maxIndex]);
+
+        surveyResponse.setTopField(fieldNames[maxIndex]);
+
+        surveyResponseRepository.save(surveyResponse);
+
+        return fieldNames[maxIndex];
     }
 
 }

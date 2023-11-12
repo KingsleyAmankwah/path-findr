@@ -7,6 +7,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+
 @Entity
 public class SurveyResponse {
 
@@ -107,5 +110,24 @@ public class SurveyResponse {
     @OneToOne
     @JoinColumn(name = "student_id", referencedColumnName = "id")
     private Student student;
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    @Column(name = "topField")
+    private String topField;
+
+    public String getTopField() {
+        return topField;
+    }
+
+    public void setTopField(String topField) {
+        this.topField = topField;
+    }
 
 }

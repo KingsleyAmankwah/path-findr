@@ -53,6 +53,8 @@ public class StudentServiceImplt implements StudentService {
         // send token to user as email
         emailService.sendSimpleEmail(student.getEmail(), "Token: " + token, "Pathfindr Token");
 
+        student.setSpecialty("incoming");
+
         // Save the student
         studentRepository.save(student);
 
@@ -75,6 +77,12 @@ public class StudentServiceImplt implements StudentService {
     public Student getAuthenticatedStudent(Authentication authentication, Student student) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getAuthenticatedStudent'");
+    }
+
+    @Override
+    public Student getLatesStudent() {
+
+        return studentRepository.findTopByOrderByIdDesc();
     }
 
 }
