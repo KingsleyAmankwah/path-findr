@@ -23,46 +23,10 @@ export default function AppForm() {
   const handleClick = (e) => {
     e.preventDefault();
 
-    const Mentor = {username,email,specialty,cv};
-  
+    const Mentor = { username, email, specialty, cv };
+
     signUpStudent(Mentor);
   };
-
-  // async function signUpStudent(Mentor) {
-  //   const response = await fetch('http://localhost:8080/mentorApplication', {
-  //     method: 'POST',
-  //     headers: { "Content-Type": "application/json" }, // Change "text/plain" to "application/json"
-  //     body: JSON.stringify(Mentor)
-  //   });
-  //   const data = await response.text();
-  //   console.log(`Response from server: ${data}`);
-  // }
-
-  // async function signUpStudent(mentor) {
-  //   const formData = new FormData();
-  //   formData.append("username", mentor.username);
-  //   formData.append("email", mentor.email);
-  //   formData.append("specialty", mentor.specialty);
-  //   formData.append("cv", mentor.cv);
-
-  //   try {
-  //     const response = await fetch("http://localhost:8080/mentorApplication", {
-  //       method: "POST",
-  //       body: formData,
-  //     });
-
-  //     if (response.ok) {
-  //       const data = await response.text();
-  //       console.log(`Response from server: ${data}`);
-  //     } else {
-  //       // Handle error
-  //       const errorMessage = await response.text();
-  //       console.error(`Error: ${errorMessage}`);
-  //     }
-  //   } catch (error) {
-  //     console.error("Error:", error);
-  //   }
-  // }
 
   async function signUpStudent(Mentor) {
     const formData = new FormData();
@@ -72,7 +36,7 @@ export default function AppForm() {
 
     // Check if cv is present and not null or undefined
     if (Mentor.cv !== null && Mentor.cv !== undefined) {
-      formData.append("cv", Mentor.cv);
+      formData.append("cv", Mentor.cv, Mentor.cv.name); // Include the file name
     }
 
     try {
@@ -129,112 +93,114 @@ export default function AppForm() {
                 </a>
               </div>
             </div> */}
-          </div>
-          <div className="form_section">
-            <div className="form_block w-form">
-              <form
-                id="email-form"
-                name="email-form"
-                data-name="Email Form"
-                onSubmit={handleClick}
-                className="form"
-                aria-label="Email Form"
-              >
-                <label htmlFor="First-name" className="form_field-label">
-                  Your name
-                </label>
-                <br/>
-                <input
-                  type="text"
-                  className="form_text-field w-input"
-                  maxLength="256"
-                  name="First-name"
-                  data-name="First name"
-                  placeholder="John Doe"
-                  id="First-name"
-                  required=""
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                />
-                <br/>
-                <label htmlFor="Last-name" className="form_field-label">
-                  Phone number
-                </label>
-                <br/>
-                <input
-                  type="tel"
-                  className="form_text-field w-input"
-                  maxLength="256"
-                  name="Last-name"
-                  data-name="Last name"
-                  placeholder="Phone number"
-                  id="Last-name"
-                  required=""
-                />
-                <br/>
-                <label htmlFor="Email" className="form_field-label">
-                  Email address{' '}
-                </label>
-                <br/>
-                <input
-                  type="email"
-                  className="form_text-field w-input"
-                  maxLength="256"
-                  name="Email"
-                  data-name="Email"
-                  placeholder="johnsmith@example.com"
-                  id="Email"
-                  required=""
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                <br/>
-                
-                <label htmlFor="CV-file" className="form_field-label">
+        </div>
+        <div className="form_section">
+          <div className="form_block w-form">
+            <form
+              id="email-form"
+              name="email-form"
+              data-name="Email Form"
+              onSubmit={handleClick}
+              className="form"
+              aria-label="Email Form"
+            >
+              <label htmlFor="First-name" className="form_field-label">
+                Your name
+              </label>
+              <br />
+              <input
+                type="text"
+                className="form_text-field w-input"
+                maxLength="256"
+                name="First-name"
+                data-name="First name"
+                placeholder="John Doe"
+                id="First-name"
+                required=""
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+              <br />
+              <label htmlFor="Last-name" className="form_field-label">
+                Phone number
+              </label>
+              <br />
+              <input
+                type="tel"
+                className="form_text-field w-input"
+                maxLength="256"
+                name="Last-name"
+                data-name="Last name"
+                placeholder="Phone number"
+                id="Last-name"
+                required=""
+              />
+              <br />
+              <label htmlFor="Email" className="form_field-label">
+                Email address{" "}
+              </label>
+              <br />
+              <input
+                type="email"
+                className="form_text-field w-input"
+                maxLength="256"
+                name="Email"
+                data-name="Email"
+                placeholder="johnsmith@example.com"
+                id="Email"
+                required=""
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <br />
+
+              <label htmlFor="CV-file" className="form_field-label">
                 CV File
               </label>
               <br />
-                <input
-                  type="file"
-                  accept=".pdf,.doc,.docx" // Specify accepted file types (e.g., PDF, Word documents)
-                  onChange={(e) => setCv(e.target.files[0])}
-                  
-                 />
-                
-                <input
-                  type="submit"
-                  value="Sign Up"
-                  data-wait="Please wait..."
-                  className="button mg-top-36px w-button"
-                />
-              </form>
-              <div
-                className="form_success-message w-form-done"
-                tabIndex="-1"
-                role="region"
-                aria-label="Email Form success"
-              >
-                <div>Thank you! Your submission has been received!</div>
-              </div>
-              <div
-                className="form_error-message w-form-fail"
-                tabIndex="-1"
-                role="region"
-                aria-label="Email Form failure"
-              >
-                <div>Oops! Something went wrong while submitting the form.</div>
-              </div>
+              <input
+                required
+                name="cv"
+                type="file"
+                accept=".pdf,.doc,.docx" // Specify accepted file types (e.g., PDF, Word documents)
+                onChange={(e) => setCv(e.target.files[0])}
+              />
+
+              <input
+                type="submit"
+                value="Sign Up"
+                data-wait="Please wait..."
+                className="button mg-top-36px w-button"
+              />
+            </form>
+            <div
+              className="form_success-message w-form-done"
+              tabIndex="-1"
+              role="region"
+              aria-label="Email Form success"
+            >
+              <div>Thank you! Your submission has been received!</div>
             </div>
-          </div>
-          <div className="information_section background-color neutral-200 is--footer hide-desktop">
-            <div className="information_content is--centered">
-              <p className="paragraph-small width-60percent">
-                We're excited to see if we are a good fit. Expect a response within 24 hours.
-              </p>
+            <div
+              className="form_error-message w-form-fail"
+              tabIndex="-1"
+              role="region"
+              aria-label="Email Form failure"
+            >
+              <div>Oops! Something went wrong while submitting the form.</div>
             </div>
           </div>
         </div>
-        {/* <footer id="footer" className="footer black wf-section">
+        <div className="information_section background-color neutral-200 is--footer hide-desktop">
+          <div className="information_content is--centered">
+            <p className="paragraph-small width-60percent">
+              We're excited to see if we are a good fit. Expect a response
+              within 24 hours.
+            </p>
+          </div>
+        </div>
+      </div>
+      {/* <footer id="footer" className="footer black wf-section">
           <div className="container-l w-container">
          
           </div>
