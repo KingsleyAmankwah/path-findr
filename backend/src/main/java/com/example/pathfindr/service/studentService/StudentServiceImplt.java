@@ -19,13 +19,13 @@ import com.example.pathfindr.service.validationService.ValidationService;
 public class StudentServiceImplt implements StudentService {
 
     @Autowired
-    StudentRepository studentRepository;
+    private StudentRepository studentRepository;
 
     @Autowired
-    ValidationService validationService;
+    private ValidationService validationService;
 
     @Autowired
-    RoleRepository roleRepository;
+    private RoleRepository roleRepository;
 
     @Autowired
     private EmailService emailService;

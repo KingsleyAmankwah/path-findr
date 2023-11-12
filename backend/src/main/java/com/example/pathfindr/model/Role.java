@@ -8,9 +8,9 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "role")
-public class Role  {
+public class Role {
 
-     @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -31,5 +31,5 @@ public class Role  {
     public void setName(String name) {
         this.name = name;
     }
-    
+
 }

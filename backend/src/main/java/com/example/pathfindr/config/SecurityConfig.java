@@ -25,58 +25,96 @@ public class SecurityConfig {
                                 .cors(cors -> {
                                         cors
                                                         .configurationSource(request -> {
+
                                                                 CorsConfiguration config = new CorsConfiguration();
-                                                                config.setAllowedOrigins(
-                                                                                List.of("/signUpStudent",
-                                                                                                "http://localhost:8080/data",
-                                                                                                "http://localhost:3000/register",
-                                                                                                "http://localhost:3000/mentor",
-                                                                                                "/mentorApplication",
-                                                                                                "http://localhost:3000",
-                                                                                                "http://localhost:3000/login")); // Specify
-                                                                // allowed
-                                                                // origins
-                                                                config.setAllowedMethods(List.of("GET", "POST", "PUT",
-                                                                                "DELETE")); // Specify allowed HTTP
-                                                                // methods
-                                                                config.setAllowedHeaders(List.of("Content-Type")); // Specify
-                                                                // allowed
-                                                                // headers
-                                                                config.setAllowCredentials(true); // Enable support for
-                                                                // credentials (e.g.,
-                                                                // cookies)
+
+                                                                config.setAllowedOrigins(List.of(
+
+                                                                                "/signUpStudent",
+
+                                                                                "http://localhost:8080/data",
+
+                                                                                "http://localhost:3000/register",
+
+                                                                                "http://localhost:3000/mentor",
+
+                                                                                "/mentorApplication",
+
+                                                                                "http://localhost:3000",
+
+                                                                                "http://localhost:3000/login"));
+
+                                                                // Specify allowed HTTP methods
+                                                                config.setAllowedMethods(List.of(
+
+                                                                                "GET",
+
+                                                                                "POST",
+
+                                                                                "PUT",
+
+                                                                                "DELETE"));
+
+                                                                // Specify allowed headers
+                                                                config.setAllowedHeaders(List.of(
+
+                                                                                "Content-Type"));
+
+                                                                // Enable support for credentials (e.g.,cookies)
+                                                                config.setAllowCredentials(true);
                                                                 return config;
                                                         });
                                 })
 
                                 .authorizeHttpRequests(
                                                 (request) -> request
+
                                                                 .requestMatchers("/", "/signUp", "/mentorApplication")
                                                                 .permitAll()
+
                                                                 .requestMatchers("/student/**")
                                                                 .hasAuthority("STUDENT")
+
                                                                 .requestMatchers("/mentor/**").hasAuthority("MENTOR")
                                                                 .anyRequest()
                                                                 .permitAll())
-                                .formLogin((form) -> form
-                                                .loginPage("http://localhost:3000/login")
-                                                .defaultSuccessUrl("/signUp")
-                                                .failureUrl("/fail")
-                                                .usernameParameter("email")
-                                                .passwordParameter("password")
-                                                .permitAll()
-                                                .failureHandler((request, response, exception) -> {
-                                                        request.getSession().setAttribute("error",
-                                                                        "Invalid Credentials");
-                                                        response.sendRedirect("/login");
-                                                }))
-                                .logout((logout) -> logout
-                                                .invalidateHttpSession(true)
-                                                .logoutUrl("/logout")
-                                                .logoutSuccessUrl("/login"))
-                                .headers((headers) -> headers
-                                                .frameOptions(frameOptions -> frameOptions
-                                                                .sameOrigin()))
+
+                                .formLogin(
+                                                (form) -> form
+
+                                                                .loginPage("http://localhost:3000/login")
+
+                                                                .defaultSuccessUrl("/signUp")
+
+                                                                .failureUrl("/fail")
+
+                                                                .usernameParameter("email")
+
+                                                                .passwordParameter("password")
+                                                                .permitAll()
+
+                                                                .failureHandler((request, response, exception) -> {
+                                                                        request.getSession().setAttribute("error",
+                                                                                        "Invalid Credentials");
+
+                                                                        response.sendRedirect("/login");
+                                                                }))
+
+                                .logout(
+                                                (logout) -> logout
+
+                                                                .invalidateHttpSession(true)
+
+                                                                .logoutUrl("/logout")
+
+                                                                .logoutSuccessUrl("/login"))
+
+                                .headers(
+                                                (headers) -> headers
+
+                                                                .frameOptions(frameOptions -> frameOptions
+                                                                                .sameOrigin()))
+
                                 .csrf(AbstractHttpConfigurer::disable);
 
                 return http.build();
@@ -85,14 +123,18 @@ public class SecurityConfig {
         // Inject Auth Manager
         @Bean
         public AuthenticationManager authenticationManager(
+
                         AuthenticationConfiguration authenticationConfiguration) throws Exception {
                 return authenticationConfiguration.getAuthenticationManager();
+
         }
 
         // inject password Encoder
         @Bean
         PasswordEncoder passwordEncoder() {
+
                 return new BCryptPasswordEncoder();
+
         }
 
 }

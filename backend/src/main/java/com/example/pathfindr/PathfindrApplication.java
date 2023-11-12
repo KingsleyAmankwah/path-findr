@@ -7,7 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class PathfindrApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(PathfindrApplication.class, args);
+
 	}
 
 }

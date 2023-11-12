@@ -9,6 +9,7 @@ import jakarta.persistence.OneToOne;
 
 @Entity
 public class SurveyResponse {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

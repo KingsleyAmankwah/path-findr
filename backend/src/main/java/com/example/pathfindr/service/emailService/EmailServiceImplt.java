@@ -21,28 +21,35 @@ public class EmailServiceImplt implements EmailService {
     private JavaMailSender javaMailSender;
 
     public EmailServiceImplt(JavaMailSender javaMailSender) {
+
         this.javaMailSender = javaMailSender;
+
     }
 
     @Override
     public void sendSimpleEmail(String toEmail, String body, String subject) {
 
         SimpleMailMessage message = new SimpleMailMessage();
+
         message.setTo(toEmail);
+
         message.setSubject(subject);
+
         message.setText(body);
+
         message.setFrom("pathfindr81@gmail.com");
+
         javaMailSender.send(message);
+
     }
 
-     @Autowired
-        private MentorRepository mentorRepository;
-
+    @Autowired
+    private MentorRepository mentorRepository;
 
     @Override
-    public void sendEmailWithAttachment(String toEmail, String body, String subject, Long mentorId) throws MessagingException, IOException {
+    public void sendEmailWithAttachment(String toEmail, String body, String subject, Long mentorId)
+            throws MessagingException, IOException {
 
-       
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
 
         // Use the true flag to indicate you need a multipart message
@@ -51,7 +58,7 @@ public class EmailServiceImplt implements EmailService {
         helper.setSubject(subject);
         helper.setText(body);
 
-         // Retrieve the mentor and their CV from the database
+        // Retrieve the mentor and their CV from the database
         Mentor mentor = mentorRepository.findById(mentorId).orElse(null);
 
         if (mentor != null) {
@@ -66,10 +73,14 @@ public class EmailServiceImplt implements EmailService {
 
             // Send the email
             javaMailSender.send(mimeMessage);
-        } else {
-            throw new IllegalArgumentException("Mentor not found.");
         }
-       
+
+        else {
+
+            throw new IllegalArgumentException("Mentor not found.");
+
+        }
+
     }
 
 }

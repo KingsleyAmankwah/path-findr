@@ -67,8 +67,10 @@ public class ValidationServicImplt implements ValidationService {
         Matcher matcher = Pattern.compile(usernamePattern).matcher(username);
 
         if (!matcher.matches()) {
+
             throw new IllegalArgumentException(
                     "Invalid username!!!");
+
         }
     }
 
