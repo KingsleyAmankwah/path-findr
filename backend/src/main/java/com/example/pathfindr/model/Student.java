@@ -18,6 +18,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
 @Entity
@@ -149,5 +150,8 @@ public class Student implements UserDetails {
     public void setSpecialty(String specialty) {
         this.specialty = specialty;
     }
+
+    @OneToMany(mappedBy = "student")
+    private List<MentorStudentMapping> mentorStudentMappings;
 
 }

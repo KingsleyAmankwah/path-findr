@@ -160,4 +160,7 @@ public class Mentor implements UserDetails {
     public void setVerified(String verified) {
         this.verified = verified;
     }
+
+    @OneToMany(mappedBy = "mentor")
+    private List<MentorStudentMapping> mentorStudentMappings;
 }
