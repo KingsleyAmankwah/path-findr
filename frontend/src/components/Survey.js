@@ -183,7 +183,9 @@ function Survey() {
 
   return (
     <div className="mx-auto max-w-screen-lg p-4">
-      <h1 className="text-3xl text-center py-4 font-bold mb-4">Fill out this form to continue</h1>
+      <h1 className="text-3xl text-center py-4 font-bold mb-4">
+        Fill out this form to continue
+      </h1>
       <form>
         {questions.map((question, index) => (
           <div key={index} className="mb-4">

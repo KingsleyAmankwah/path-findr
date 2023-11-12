@@ -1,22 +1,20 @@
-import React from 'react';
-import '../styles/body.css'
+import React from "react";
+import "../styles/body.css";
 
 const PersonalityComponent = () => {
-const params = new URLSearchParams(window.location.search);
+  const params = new URLSearchParams(window.location.search);
   return (
     <div className="meet-team-member-right">
-      <div> 
-        <h1 className='text-lg'>Top Recommendations</h1>
+      <div>
+        <h1 className="text-lg">Top Recommendations</h1>
       </div>
 
- 
-              <div className="tracking-wide text-sm text-dark-500 font-semibold">
-              <p></p> 
-            <ul>
-              <li className='text-center'>{params.get("data")}</li>
-            </ul>
-              </div>
-        
+      <div className="tracking-wide text-sm text-dark-500 font-semibold">
+        <p></p>
+        <ul>
+          <li className="text-center">{params.get("data")}</li>
+        </ul>
+      </div>
     </div>
   );
 };

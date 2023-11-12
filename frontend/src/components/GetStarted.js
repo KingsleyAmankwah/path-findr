@@ -1,5 +1,5 @@
-import React from 'react';
-import '../styles/getstarted.css';
+import React from "react";
+import "../styles/getstarted.css";
 
 const GetStarted = () => {
   return (
@@ -15,7 +15,8 @@ const GetStarted = () => {
           data-w-id="eb04d323-0988-4f52-04f5-72e8b9570905"
           className="get__started__now-subtitle"
         >
-          Financial analysis involves using financial data to assess a company’s performance and make recommendations about how it can improve.
+          Financial analysis involves using financial data to assess a company’s
+          performance and make recommendations about how it can improve.
         </p>
       </div>
       <div className="get-started-btn">

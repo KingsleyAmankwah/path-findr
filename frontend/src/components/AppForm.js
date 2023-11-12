@@ -1,15 +1,8 @@
 import React, { useState } from "react";
 import "../styles/appform.css";
-// import '../images/logo.png'
 import logo from "../images/logo.png";
 
 export default function AppForm() {
-  // const [cvFile, setCvFile] = useState(null);
-
-  // const handleCvFileChange = (e) => {
-  //   const file = e.target.files[0]; // Get the selected file
-  //   setCvFile(file); // Update the state with the selected file
-
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [specialty, setSpecialty] = useState("");
