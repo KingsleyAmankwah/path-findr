@@ -154,6 +154,12 @@ public class Student implements UserDetails {
     @OneToMany(mappedBy = "student")
     private List<MentorStudentMapping> mentorStudentMappings;
 
-   
+    public List<MentorStudentMapping> getMentorStudentMappings() {
+        return mentorStudentMappings;
+    }
+
+    public void setMentorStudentMappings(List<MentorStudentMapping> mentorStudentMappings) {
+        this.mentorStudentMappings = mentorStudentMappings;
+    }
 
 }

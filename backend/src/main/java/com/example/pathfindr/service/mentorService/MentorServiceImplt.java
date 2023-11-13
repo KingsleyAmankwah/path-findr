@@ -51,8 +51,10 @@ public class MentorServiceImplt implements MentorService {
                 // mentor.setPassword(mentorPassword);
 
                 mentor.setPassword(new BCryptPasswordEncoder().encode(mentorPassword));
-                
+
                 mentor.setVerified("no");
+
+                mentor.setSpecialty("Engineering");
 
                 mentorRepository.save(mentor);
 

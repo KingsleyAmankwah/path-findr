@@ -14,13 +14,17 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.pathfindr.model.Mentor;
+import com.example.pathfindr.model.MentorStudentMapping;
 import com.example.pathfindr.model.Student;
 import com.example.pathfindr.model.SurveyResponse;
+import com.example.pathfindr.repository.MentorStudentMappingRepository;
 import com.example.pathfindr.repository.RoleRepository;
 import com.example.pathfindr.repository.StudentRepository;
 import com.example.pathfindr.repository.SurveyResponseRepository;
+import com.example.pathfindr.service.MatchingService;
 import com.example.pathfindr.service.mentorService.MentorService;
 import com.example.pathfindr.service.studentService.StudentService;
+import com.fasterxml.jackson.databind.deser.DataFormatReaders.Match;
 
 import jakarta.mail.MessagingException;
 
@@ -41,6 +45,12 @@ public class MainController {
 
     @Autowired
     SurveyResponseRepository surveyResponseRepository;
+
+    @Autowired
+    MentorStudentMappingRepository mentorStudentRepository;
+
+    @Autowired
+    MatchingService matchingService;
 
     @PostMapping("/signUpStudent")
     public ResponseEntity<String> addNewUser(@RequestBody Student student) {
@@ -198,6 +208,16 @@ public class MainController {
         surveyResponse.setTopField(fieldNames[maxIndex]);
 
         surveyResponseRepository.save(surveyResponse);
+
+        MentorStudentMapping mentorStudentMapping = new MentorStudentMapping();
+
+        mentorStudentMapping.setStudent(surveyResponse.getStudent());
+
+        mentorStudentMapping.setMentor(surveyResponse.getStudent().getMentor());
+
+        mentorStudentMapping.setSpecialty(fieldNames[maxIndex]);
+
+        mentorStudentRepository.save(mentorStudentMapping);
 
         return fieldNames[maxIndex];
     }
