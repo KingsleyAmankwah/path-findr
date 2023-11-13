@@ -33,7 +33,7 @@ public class ValidationServicImplt implements ValidationService {
 
         if (!matcher.matches()) {
             throw new IllegalArgumentException(
-                    "Invalid password!!!");
+                    "Invalid password!!! Password must contain at least one digit, one lowercase, one uppercase, one special character and length between 8 to 20");
         }
 
     }
@@ -49,9 +49,10 @@ public class ValidationServicImplt implements ValidationService {
 
         }
 
+
         if (!matcher.matches()) {
             throw new IllegalArgumentException(
-                    "Invalid email!!!");
+                    "Invalid email!!! Email must be in the format of:example@email.com");
         }
 
     }
@@ -73,5 +74,22 @@ public class ValidationServicImplt implements ValidationService {
 
         }
     }
+
+    @Override
+    public void checkIfUserExists(User user) {
+        // check if email already exists
+        try {
+
+            if (userRepository.findByEmail(user.getEmail()) != null) {
+                throw new IllegalArgumentException(
+                        "Email already exists!!!");
+            }
+
+        } catch (Exception e) {
+
+            e.getMessage();
+        }
+    }
+
 
 }

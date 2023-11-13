@@ -10,4 +10,6 @@ public interface ValidationService {
 
     void validateUsername(String username);
 
+    void checkIfUserExists(User user);
+
 }
