@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/body.css";
+import "../App.css";
 import mentor from "../images/mentor.png";
 
 const MentorFind = () => {

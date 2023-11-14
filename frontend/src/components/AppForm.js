@@ -164,6 +164,7 @@ export default function AppForm() {
                 value="Sign Up"
                 data-wait="Please wait..."
                 className="button mg-top-36px w-button"
+                style={{ backgroundColor: "green" }}
               />
             </form>
             <div

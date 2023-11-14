@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/body.css";
+import "../App.css";
 import logo from "../images/logo.png";
 
 export default function Navbar() {
@@ -30,10 +30,6 @@ export default function Navbar() {
           data-w-id="af19e7ca-dfad-8892-3307-d8d92ffddc74"
           className="global-nav-button "
         >
-          <div className="left-line" style={{ height: "0%", width: "2%" }} />
-          <div className="right-line" style={{ height: "0%", width: 2 }} />
-          <div className="bottom-line" style={{ width: "0%", height: 2 }} />
-          <div className="top-line" style={{ width: "0%", height: 2 }} />
           <div>
             <div>Home</div>
           </div>
@@ -45,10 +41,6 @@ export default function Navbar() {
           data-w-id="af19e7ca-dfad-8892-3307-d8d92ffddc7b"
           className="global-nav-button"
         >
-          <div className="left-line" style={{ height: "0%", width: "2%" }} />
-          <div className="right-line" style={{ height: "0%", width: 2 }} />
-          <div className="bottom-line" style={{ width: "0%", height: 2 }} />
-          <div className="top-line" style={{ width: "0%" }} />
           <div>
             <div>Login</div>
           </div>
@@ -59,10 +51,6 @@ export default function Navbar() {
           data-w-id="af19e7ca-dfad-8892-3307-d8d92ffddc7b"
           className="global-nav-button"
         >
-          <div className="left-line" style={{ height: "0%", width: "2%" }} />
-          <div className="right-line" style={{ height: "0%", width: 2 }} />
-          <div className="bottom-line" style={{ width: "0%", height: 2 }} />
-          <div className="top-line" style={{ width: "0%" }} />
           <div>
             <div>For Students</div>
           </div>
@@ -73,10 +61,6 @@ export default function Navbar() {
           data-w-id="af19e7ca-dfad-8892-3307-d8d92ffddc8a"
           className="global-nav-button "
         >
-          <div className="left-line" style={{ height: "0%", width: "2%" }} />
-          <div className="right-line" style={{ height: "0%", width: 2 }} />
-          <div className="bottom-line" style={{ width: "0%", height: 2 }} />
-          <div className="top-line" style={{ width: "0%" }} />
           <div>
             <div>For Mentors</div>
           </div>
