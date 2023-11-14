@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import {
-  createSearchParams,
   useNavigate,
-  useSearchParams,
 } from "react-router-dom";
 
 function Survey() {
