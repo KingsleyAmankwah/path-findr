@@ -2,8 +2,6 @@ import React from "react";
 import "../App.css";
 import mentor from "../images/mentor1.png";
 import trophy from "../images/trophy.svg";
-import mobilearrow1 from "../images/mobilearrow1.svg";
-import mobilearrow2 from "../images/mobilearrow2.svg";
 import arrow1 from "../images/arrow1.svg";
 import arrow2 from "../images/arrow2.svg";
 import meetarrow from "../images/meetarrow.svg";
@@ -196,12 +194,7 @@ const Section = () => {
                         transformStyle: "preserve-3d",
                       }}
                     />
-                    <img
-                      src={mobilearrow1}
-                      size={1}
-                      alt=""
-                      className="arrow-image-mobile"
-                    />
+                
                   </div>
                   <div className="statistic-circle-wrap">
                     <div className="circle-div" style={{ opacity: 1 }}>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/login.css";
+import "../App.css";
 import { toast } from "react-toastify";
 import Spinner from "./Spinner";
 import { useNavigate } from "react-router-dom";
