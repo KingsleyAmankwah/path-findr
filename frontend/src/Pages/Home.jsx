@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar.js";
 
 function Home() {
   return (
-    <div>
+    <div className="whole-body">
       <Navbar />
       <Hero />
       <Body />
