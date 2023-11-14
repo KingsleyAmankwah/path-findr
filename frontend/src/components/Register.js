@@ -28,7 +28,7 @@ function SignUp() {
 
   async function signUpStudent(Student) {
     const response = await fetch(
-      "https://dashboard.heroku.com/apps/pathfindr/deploy/github/signUpStudent",
+      "http://dashboard.heroku.com/apps/pathfindr/deploy/github/signUpStudent",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" }, // Change "text/plain" to "application/json"
@@ -36,7 +36,7 @@ function SignUp() {
       }
     );
     const data = await response.text();
-    if (response.status == 200) {
+    if (response.status === 200) {
       toast.success(`${data}`);
       navigate("/survey");
       console.log(`Response from server: ${data}`);
