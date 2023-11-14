@@ -5,11 +5,7 @@ body {
   font-size: 18px;
   line-height: 26px;
 }
-.section-container-master.white-bg {
-  width: 3090px;
-  background-color: #fff;
-  background-image: none;
-}
+
 .form_text-field {
   margin-bottom: 37px;
   padding-top: 15px;
@@ -1257,6 +1253,11 @@ a {
     font-size: 1vw;
     line-height: 1.4vw;
   }
+  .section-container-master.white-bg {
+    width: 3090px;
+    background-color: #fff;
+    background-image: none;
+  }
   .text-wrap {
     padding: 1vw 1.65vw 1.65vw;
   }
@@ -1838,6 +1839,11 @@ a {
   }
   .section-container-master.alternate {
     padding: 40px 32px;
+  }
+  .section-container-master.white-bg {
+    width: 440px;
+    background-color: #fff;
+    background-image: none;
   }
   .title-wrap {
     margin-left: 0px;
