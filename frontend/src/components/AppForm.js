@@ -199,11 +199,6 @@ export default function AppForm() {
           </div>
         </div>
       </div>
-      {/* <footer id="footer" className="footer black wf-section">
-          <div className="container-l w-container">
-         
-          </div>
-        </footer> */}
     </div>
   );
 }
