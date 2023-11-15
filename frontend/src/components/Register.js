@@ -27,22 +27,14 @@ function SignUp() {
   };
 
   async function signUpStudent(Student) {
-<<<<<<< HEAD
-    const response = await fetch("https://pathfindr-e70a2615f0f7.herokuapp.com/signUpStudent", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" }, // Change "text/plain" to "application/json"
-      body: JSON.stringify(Student),
-    });
-=======
     const response = await fetch(
-      "http://dashboard.heroku.com/apps/pathfindr/deploy/github/signUpStudent",
+      "https://pathfindr-e70a2615f0f7.herokuapp.com/signUpStudent",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" }, // Change "text/plain" to "application/json"
         body: JSON.stringify(Student),
       }
     );
->>>>>>> 29390d708f684497e2d6d9a7089e3aaa51f8aec0
     const data = await response.text();
     if (response.status === 200) {
       toast.success(`${data}`);
