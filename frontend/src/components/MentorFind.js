@@ -11,9 +11,7 @@ const MentorFind = () => {
       <div className="name-label">
         <h4 className="centred normal-weight">John Doe</h4>
       </div>
-      <div>
-        {/* <h4 className="centred superscript-caps light">Director & Lecturer</h4> */}
-      </div>
+      <div></div>
       <div>
         <a href="/school/engineering" className="label-master w-inline-block">
           <div>Specialty</div>
@@ -24,6 +22,7 @@ const MentorFind = () => {
           target="_blank"
           href="http://192.168.23.32:3000"
           className="action-button wider coloured-text nomargin w-inline-block"
+          rel="noreferrer"
         >
           <div>Chat your Mentor</div>
         </a>

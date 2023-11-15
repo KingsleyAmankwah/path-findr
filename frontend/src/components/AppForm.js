@@ -13,6 +13,10 @@ export default function AppForm() {
     setCv(file);
   };
 
+  const handleSpecialtyChange = (event) => {
+    setSpecialty(event.target.value);
+  };
+
   const handleClick = (e) => {
     e.preventDefault();
 
@@ -33,10 +37,13 @@ export default function AppForm() {
     }
 
     try {
-      const response = await fetch("http://localhost:8080/mentorApplication", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch(
+        "https://pathfindr-e70a2615f0f7.herokuapp.com/mentorApplication",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
       if (response.ok) {
         const data = await response.text();
@@ -114,7 +121,7 @@ export default function AppForm() {
                 onChange={(e) => setUsername(e.target.value)}
               />
               <br />
-              <label htmlFor="Last-name" className="form_field-label">
+              <label htmlFor="phone-number" className="form_field-label">
                 Phone number
               </label>
               <br />
@@ -145,18 +152,46 @@ export default function AppForm() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
+
+              <br />
+
+              <label htmlFor="specialty" className="form_field-label">
+                Specialty
+              </label>
+
+              <select
+                name="specialty"
+                id="specialty"
+                value={specialty}
+                onChange={handleSpecialtyChange}
+                className="form_text-field w-input"
+              >
+                <option value="">Select specialty</option>
+                <option value="Engineering">Engineering</option>
+                <option value="Business Analysis">Business Analysis</option>
+                <option value="Medicine">Medicine</option>
+                <option value="Art">Art</option>
+                <option value="Social Sciences">Social Sciences</option>
+                <option value="Humanities">Humanities</option>
+                <option value="Information Technology">
+                  Information Technology
+                </option>
+              </select>
               <br />
 
               <label htmlFor="CV-file" className="form_field-label">
                 CV File
               </label>
               <br />
+
               <input
+                className="form_text-field w-input"
                 required
                 name="cv"
                 type="file"
-                accept=".pdf,.doc,.docx" // Specify accepted file types (e.g., PDF, Word documents)
-                onChange={(e) => setCv(e.target.files[0])}
+                accept=".pdf,.doc,.docx"
+                // onChange={(e) => setCv(e.target.files[0])}
+                onChange={handleFileChange}
               />
 
               <input
