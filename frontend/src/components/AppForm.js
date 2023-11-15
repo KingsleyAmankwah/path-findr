@@ -180,7 +180,6 @@ export default function AppForm() {
 
               <input
                 className="form_text-field w-input"
-                required
                 name="cv"
                 type="file"
                 accept=".pdf,.doc,.docx"
