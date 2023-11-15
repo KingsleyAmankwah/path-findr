@@ -3,7 +3,7 @@ import "../App.css";
 import { toast } from "react-toastify";
 import Spinner from "./Spinner";
 import { useNavigate } from "react-router-dom";
-
+import axios from "axios";
 function SignUp() {
   //login render
   const [isLogin, setIsLogin] = useState(false);
@@ -16,36 +16,81 @@ function SignUp() {
   const navigate = useNavigate();
 
   //handle submit button
+  // const handleClick = async (e) => {
+  //   e.preventDefault();
+  //   setLoading(true);
+
+  //   const Student = { username, email, password };
+
+  //   await signUpStudent(Student);
+  //   setLoading(false);
+  // };
+
+  // async function signUpStudent(Student) {
+  //   const response = await fetch(
+  //     "https://pathfindr-e70a2615f0f7.herokuapp.com/signUpStudent",
+  //     {
+  //       mode: "no-cors",
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(Student),
+  //     }
+  //   );
+  //   const data = await response.text();
+  //   if (response.status === 200) {
+  //     toast.success(`${data}`);
+  //     navigate("/survey");
+  //     console.log(`Response from server: ${data}`);
+  //   } else {
+  //     toast.error(`${data}`);
+  //     console.log(`Response from server: ${data}`);
+  //   }
+  // }
+
   const handleClick = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    const Student = { username, email, password };
+    const student = { username, email, password };
 
-    await signUpStudent(Student);
-    setLoading(false);
+    try {
+      const response = await signUpStudent(student);
+
+      if (response.status === 200) {
+        const data = response.data;
+        toast.success(`${data}`);
+        navigate("/survey");
+        console.log(`Response from server: ${data}`);
+      } else {
+        const errorMessage = response.data;
+        toast.error(errorMessage);
+        console.error(`Error: ${errorMessage}`);
+      }
+    } catch (error) {
+      toast.error("An error occurred. Please try again.");
+      console.error("Error:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  async function signUpStudent(Student) {
-    const response = await fetch(
-      "https://pathfindr-e70a2615f0f7.herokuapp.com/signUpStudent",
-      {
-        mode: "no-cors",
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(Student),
-      }
-    );
-    const data = await response.text();
-    if (response.status === 200) {
-      toast.success(`${data}`);
-      navigate("/survey");
-      console.log(`Response from server: ${data}`);
-    } else {
-      toast.error(`${data}`);
-      console.log(`Response from server: ${data}`);
+  async function signUpStudent(student) {
+    try {
+      const response = await axios.post(
+        "https://pathfindr-e70a2615f0f7.herokuapp.com/signUpStudent",
+        student,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      return response;
+    } catch (error) {
+      throw error;
     }
   }
 
