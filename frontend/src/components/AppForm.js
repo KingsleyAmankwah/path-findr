@@ -60,7 +60,6 @@ export default function AppForm() {
       } else {
         const errorMessage = await response.text();
         toast.error(errorMessage);
-        // toast.error("Error submitting application");
         console.error(`Error: ${errorMessage}`);
       }
     } catch (error) {
