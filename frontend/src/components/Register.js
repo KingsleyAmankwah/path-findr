@@ -30,6 +30,7 @@ function SignUp() {
     const response = await fetch(
       "https://pathfindr-e70a2615f0f7.herokuapp.com/signUpStudent",
       {
+        mode: "cors",
         method: "POST",
         headers: {
           "Content-Type": "application/json",
