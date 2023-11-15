@@ -194,7 +194,6 @@ const Section = () => {
                         transformStyle: "preserve-3d",
                       }}
                     />
-                
                   </div>
                   <div className="statistic-circle-wrap">
                     <div className="circle-div" style={{ opacity: 1 }}>
@@ -217,7 +216,6 @@ const Section = () => {
                         transformStyle: "preserve-3d",
                       }}
                     />
-                  
                   </div>
                   <div className="statistic-circle-wrap">
                     <div className="circle-div" style={{ opacity: 1 }}>
