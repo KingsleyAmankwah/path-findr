@@ -59,7 +59,7 @@ export default function AppForm() {
         console.log(`Response from server: ${data}`);
       } else {
         const errorMessage = await response.text();
-        toast.error("Error submitting application");
+        // toast.error("Error submitting application");
         console.error(`Error: ${errorMessage}`);
       }
     } catch (error) {
