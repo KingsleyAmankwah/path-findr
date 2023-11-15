@@ -40,7 +40,7 @@ export default function AppForm() {
       const response = await fetch(
         "https://pathfindr-e70a2615f0f7.herokuapp.com/mentorApplication",
         {
-          mode: "cors",
+          mode: "no-cors",
           method: "POST",
           body: formData,
         }
