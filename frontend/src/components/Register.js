@@ -38,7 +38,7 @@ function SignUp() {
         body: JSON.stringify(Student),
       }
     );
-    const data = await response.text();
+    const data = await response.json();
     if (response.status === 200) {
       toast.success(`${data}`);
       navigate("/survey");
