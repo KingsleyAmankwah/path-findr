@@ -34,7 +34,7 @@ public class StudentServiceImplt implements StudentService {
     public void saveStudent(Student student) {
         // Validate User Input
         validationService.validateUsername(student.getUsername());
-        validationService.checkIfUserExists(student);
+        // validationService.checkIfUserExists(student);
         validationService.validateEmail(student.getEmail());
 
         validationService.validatePassword(student.getPassword());

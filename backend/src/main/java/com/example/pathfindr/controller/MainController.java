@@ -1,9 +1,6 @@
 package com.example.pathfindr.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,8 +21,6 @@ import com.example.pathfindr.repository.SurveyResponseRepository;
 import com.example.pathfindr.service.MatchingService;
 import com.example.pathfindr.service.mentorService.MentorService;
 import com.example.pathfindr.service.studentService.StudentService;
-import com.fasterxml.jackson.databind.deser.DataFormatReaders.Match;
-
 import jakarta.mail.MessagingException;
 
 @RestController

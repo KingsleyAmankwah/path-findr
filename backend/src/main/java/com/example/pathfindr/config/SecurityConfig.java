@@ -36,7 +36,7 @@ public class SecurityConfig {
 
                                                                                 "http://localhost:3000/register",
 
-                                                                                "http://localhost:3000/mentor",
+                                                                                "http://localhost:3000/mentor","https://pathfindr-e70a2615f0f7.herokuapp.com/signUpStudent","https://pathfindr-e70a2615f0f7.herokuapp.com",
 
                                                                                 "/mentorApplication",
 

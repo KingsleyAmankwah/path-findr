@@ -27,7 +27,7 @@ function SignUp() {
   };
 
   async function signUpStudent(Student) {
-    const response = await fetch("http://localhost:8080/signUpStudent", {
+    const response = await fetch("https://pathfindr-e70a2615f0f7.herokuapp.com/signUpStudent", {
       method: "POST",
       headers: { "Content-Type": "application/json" }, // Change "text/plain" to "application/json"
       body: JSON.stringify(Student),

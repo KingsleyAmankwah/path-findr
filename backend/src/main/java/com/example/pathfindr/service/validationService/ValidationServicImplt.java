@@ -75,21 +75,33 @@ public class ValidationServicImplt implements ValidationService {
         }
     }
 
-    @Override
-    public void checkIfUserExists(User user) {
-        // check if email already exists
-        try {
+    // @Override
+    // public void checkIfUserExists(User user) {
+    //     // check if email already exists
+    //     try {
 
-            if (userRepository.findByEmail(user.getEmail()) != null) {
-                throw new IllegalArgumentException(
-                        "Email already exists!!!");
-            }
+    //         if (userRepository.findByEmail(user.getEmail()) != null) {
+    //             throw new IllegalArgumentException(
+    //                     "Email already exists!!!");
+    //         }
 
-        } catch (Exception e) {
+    //     } catch (Exception e) {
 
-            e.getMessage();
-        }
-    }
+    //         e.getMessage();
+    //     }
+    // }
+
+    // @Override
+    // public void checkIfUserExists(User user) {
+    //     // TODO Auto-generated method stub
+    //     throw new UnsupportedOperationException("Unimplemented method 'checkIfUserExists'");
+    // }
+
+    // @Override
+    // public void checkIfUserExists(User user) {
+    //     // TODO Auto-generated method stub
+    //     throw new UnsupportedOperationException("Unimplemented method 'checkIfUserExists'");
+    // }
 
 
 }
