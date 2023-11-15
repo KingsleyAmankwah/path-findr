@@ -30,9 +30,11 @@ function SignUp() {
     const response = await fetch(
       "https://pathfindr-e70a2615f0f7.herokuapp.com/signUpStudent",
       {
-        mode: "no-cors",
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer your-token",
+        },
         body: JSON.stringify(Student),
       }
     );
@@ -45,29 +47,7 @@ function SignUp() {
       toast.error(`${data}`);
       console.log(`Response from server: ${data}`);
     }
-    // console.log(`Response from server: ${response.status}`);
-    // toast.error(`Response from server: ${res}`);
-    // console.log(`Response from server: ${data}`);
   }
-
-  // async function signUpStudent(Student) {
-
-  //     const response = await fetch('http://localhost:8080/signUpStudent', {
-  //       method: 'POST',
-  //       headers: { "Content-Type": "application/json" },
-  //       body: JSON.stringify(Student)
-  //     });
-
-  //     const data = await response.text();
-  //     console.log(`Response from server: ${data}`);
-
-  //     if (!response.ok) {
-  //       throw new Error(data);
-  //     }
-  //     console.error('Error:', error);
-  //     toast.error(`Error: ${error.message}`);
-  //     return;
-  // }
 
   if (loading) return <Spinner />;
   return (

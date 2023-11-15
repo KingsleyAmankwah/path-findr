@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import "../App.css";
 import logo from "../images/logo.png";
+import { toast } from "react-toastify";
+import Spinner from "./Spinner";
 
 export default function AppForm() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [specialty, setSpecialty] = useState("");
   const [cv, setCv] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -19,45 +22,50 @@ export default function AppForm() {
 
   const handleClick = (e) => {
     e.preventDefault();
+    setLoading(true);
 
     const Mentor = { username, email, specialty, cv };
-
-    signUpStudent(Mentor);
+    signUpMentor(Mentor);
+    setLoading(false);
   };
 
-  async function signUpStudent(Mentor) {
+  async function signUpMentor(Mentor) {
     const formData = new FormData();
     formData.append("username", Mentor.username);
     formData.append("email", Mentor.email);
     formData.append("specialty", Mentor.specialty);
 
-    // Check if cv is present and not null or undefined
     if (Mentor.cv !== null && Mentor.cv !== undefined) {
-      formData.append("cv", Mentor.cv, Mentor.cv.name); // Include the file name
+      formData.append("cv", Mentor.cv, Mentor.cv.name);
     }
 
     try {
       const response = await fetch(
         "https://pathfindr-e70a2615f0f7.herokuapp.com/mentorApplication",
         {
-          mode: "no-cors",
           method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer your-token",
+          },
           body: formData,
         }
       );
 
       if (response.ok) {
         const data = await response.text();
+        toast.success("Application submitted successfully");
         console.log(`Response from server: ${data}`);
       } else {
-        // Handle error
         const errorMessage = await response.text();
+        toast.error("Error submitting application");
         console.error(`Error: ${errorMessage}`);
       }
     } catch (error) {
       console.error("Error:", error);
     }
   }
+  if (loading) return <Spinner />;
 
   return (
     <div className="body-3">
@@ -77,23 +85,8 @@ export default function AppForm() {
             </div>
             <h1 className="display-1 width-80percent">
               Join our team of mentors to help shape careers of the youth
-              {/* <span className="text-span-8">Schedule a call with our team.</span> */}
             </h1>
           </div>
-          {/* <div className="information_content hide-tablet">
-              <p className="width-60percent">
-                We're excited to see if we are a good fit. Expect a response within 24 hours.
-              </p>
-              <div className="divider"></div>
-              <div className="information_footer-links">
-                <a href="goo" className="link-2">
-                  Terms
-                </a>
-                <a href="goo" className="is--second">
-                  Content policy
-                </a>
-              </div>
-            </div> */}
         </div>
         <div className="form_section">
           <div className="form_block w-form">
