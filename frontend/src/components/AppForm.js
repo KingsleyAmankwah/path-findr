@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/appform.css";
+import "../App.css";
 import logo from "../images/logo.png";
 
 export default function AppForm() {
@@ -164,32 +164,9 @@ export default function AppForm() {
                 value="Sign Up"
                 data-wait="Please wait..."
                 className="button mg-top-36px w-button"
+                style={{ backgroundColor: "green", marginTop: 20 }}
               />
             </form>
-            <div
-              className="form_success-message w-form-done"
-              tabIndex="-1"
-              role="region"
-              aria-label="Email Form success"
-            >
-              <div>Thank you! Your submission has been received!</div>
-            </div>
-            <div
-              className="form_error-message w-form-fail"
-              tabIndex="-1"
-              role="region"
-              aria-label="Email Form failure"
-            >
-              <div>Oops! Something went wrong while submitting the form.</div>
-            </div>
-          </div>
-        </div>
-        <div className="information_section background-color neutral-200 is--footer hide-desktop">
-          <div className="information_content is--centered">
-            <p className="paragraph-small width-60percent">
-              We're excited to see if we are a good fit. Expect a response
-              within 24 hours.
-            </p>
           </div>
         </div>
       </div>

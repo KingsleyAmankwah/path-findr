@@ -1,5 +1,6 @@
 import React from "react";
-import "../styles/hero.css";
+import "../App.css";
+import hero from "../images/hero.png";
 
 const Hero = () => {
   return (
@@ -13,7 +14,7 @@ const Hero = () => {
                   id="w-node-_0c0bc286-180e-ebe4-42b6-078eec31a71a-cb3341c1"
                   className="home-header_content-wrapper"
                 >
-                  <h1>
+                  <h1 className="text-2xl lg:text-4xl">
                     {" "}
                     Empower your future – connect with mentors dedicated to
                     helping you grow and thrive
@@ -29,17 +30,16 @@ const Hero = () => {
                     <a href="/register" className="start-free-btn w-button">
                       Get Started
                     </a>
-                    {/* <a href="/courses" className="radius-sign-btn w-button">Search Courses</a> */}
                   </div>
                 </div>
                 <div className="home-header_image-wrapper">
                   <img
-                    src="https://assets.website-files.com/611c1156394c79e3f63341be/611cf80f4a91904a4bcd3093_home%20image-min.png"
+                    src={hero}
                     loading="lazy"
-                    width="543"
-                    sizes="(max-width: 767px) 92vw, (max-width: 991px) 46vw, 41vw"
+                    className="w-full"
+                    // width="543"
+                    // sizes="(max-width: 767px) 92vw, (max-width: 991px) 46vw, 41vw"
                     alt=""
-                    srcSet="https://assets.website-files.com/611c1156394c79e3f63341be/611cf80f4a91904a4bcd3093_home%20image-min-p-500.png 500w, https://assets.website-files.com/611c1156394c79e3f63341be/611cf80f4a91904a4bcd3093_home%20image-min.png 1086w"
                   />
                 </div>
               </div>
@@ -47,7 +47,7 @@ const Hero = () => {
           </div>
         </div>
       </header>
-      <section className="section-home-stats">
+      <section className="section-home-stats w-full">
         <div className="page-padding">
           <div className="padding-vertical padding-xlarge">
             <div className="container-medium">

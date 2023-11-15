@@ -90,6 +90,7 @@ public class ValidationServicImplt implements ValidationService {
     //         e.getMessage();
     //     }
     // }
+<<<<<<< HEAD
 
     // @Override
     // public void checkIfUserExists(User user) {
@@ -102,6 +103,8 @@ public class ValidationServicImplt implements ValidationService {
     //     // TODO Auto-generated method stub
     //     throw new UnsupportedOperationException("Unimplemented method 'checkIfUserExists'");
     // }
+=======
+>>>>>>> 29390d708f684497e2d6d9a7089e3aaa51f8aec0
 
 
 }

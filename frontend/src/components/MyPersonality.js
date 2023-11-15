@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/body.css";
+import "../App.css";
 
 const PersonalityComponent = () => {
   const params = new URLSearchParams(window.location.search);

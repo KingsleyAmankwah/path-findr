@@ -1,7 +1,10 @@
 import React from "react";
-import "../styles/body.css";
+import "../App.css";
 import mentor from "../images/mentor1.png";
-
+import trophy from "../images/trophy.svg";
+import arrow1 from "../images/arrow1.svg";
+import arrow2 from "../images/arrow2.svg";
+import meetarrow from "../images/meetarrow.svg";
 const Body = () => {
   return (
     <div>
@@ -30,10 +33,7 @@ const Body = () => {
                         <div className="meet-block">
                           <div className="meet-flex">
                             <div className="meet-arrow">
-                              <img
-                                src="https://assets.website-files.com/5ee56ef2b699d6efa2986496/5ee56ef342440823e8c7299f_Meet%20Arrow.svg"
-                                alt="David Warrilow"
-                              ></img>
+                              <img src={meetarrow} alt="David Warrilow"></img>
                             </div>
                             <div
                               className="meet-text"
@@ -149,7 +149,7 @@ const Section = () => {
             </div>
             <div className="callout-right">
               <img
-                src="https://assets.website-files.com/5ee56ef2b699d6efa2986496/5ee56ef3424408c6dcc72944_Course%20Costs.svg"
+                src={trophy}
                 width={450}
                 data-w-id="b5019df9-e6f1-a843-e8c3-8dcee1fbc5c8"
                 alt=""
@@ -183,7 +183,7 @@ const Section = () => {
                   </div>
                   <div className="arrow-wrap">
                     <img
-                      src="https://assets.website-files.com/5ee56ef2b699d6efa2986496/5ee56ef34244080532c7293f_5e51faee2c16e8810b0e7230_arrow-right.svg"
+                      src={arrow1}
                       width={150}
                       alt=""
                       className="arrow-image"
@@ -193,12 +193,6 @@ const Section = () => {
                           "translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)",
                         transformStyle: "preserve-3d",
                       }}
-                    />
-                    <img
-                      src="https://assets.website-files.com/5ee56ef2b699d6efa2986496/5ee56ef3424408329fc72961_5e51faee2c16e83a5a0e7232_arrow-down.svg"
-                      size={1}
-                      alt=""
-                      className="arrow-image-mobile"
                     />
                   </div>
                   <div className="statistic-circle-wrap">
@@ -211,7 +205,7 @@ const Section = () => {
                   </div>
                   <div className="arrow-wrap">
                     <img
-                      src="https://assets.website-files.com/5ee56ef2b699d6efa2986496/5ee56ef342440801f5c72960_5e51faee2c16e827860e7233_arrow-right-02.svg"
+                      src={arrow2}
                       width={150}
                       alt=""
                       className="arrow-image"
@@ -221,12 +215,6 @@ const Section = () => {
                           "translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)",
                         transformStyle: "preserve-3d",
                       }}
-                    />
-                    <img
-                      src="https://assets.website-files.com/5ee56ef2b699d6efa2986496/5ee56ef342440875cdc72950_5e51faee2c16e8799f0e7231_arrow-down-02.svg"
-                      height={4}
-                      alt=""
-                      className="arrow-image-mobile-02"
                     />
                   </div>
                   <div className="statistic-circle-wrap">
